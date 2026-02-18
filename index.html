@@ -260,7 +260,7 @@
             letter-spacing: 1px;
         }
         
-        /* Main Greeting */
+        /* Main Greeting - Split into 2 lines */
         .greeting {
             color: #fff;
             font-size: 1.8rem;
@@ -274,20 +274,30 @@
             background-clip: text;
             background-size: 200% auto;
             animation: gradient 3s linear infinite, fadeInUp 1s ease-out 0.4s both;
+            line-height: 1.3;
+        }
+        
+        .greeting-line {
+            display: block;
         }
         
         @keyframes gradient {
             to { background-position: 200% center; }
         }
         
-        /* Subtitle */
+        /* Subtitle - Split into 3 lines */
         .subtitle {
             color: rgba(255,255,255,0.9);
             font-size: 0.95rem;
             max-width: 400px;
-            line-height: 1.5;
+            line-height: 1.6;
             margin: 8px 0;
             animation: fadeInUp 1s ease-out 0.5s both;
+        }
+        
+        .subtitle-line {
+            display: block;
+            margin: 2px 0;
         }
         
         /* Decorative Line */
@@ -334,6 +344,46 @@
             margin-top: 5px;
         }
         
+        /* Music Control */
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid rgba(246, 211, 101, 0.5);
+            transition: all 0.3s ease;
+            animation: fadeIn 1s ease-out 1s both;
+        }
+        
+        .music-control:hover {
+            background: rgba(246, 211, 101, 0.2);
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(246, 211, 101, 0.4);
+        }
+        
+        .music-icon {
+            color: #f6d365;
+            font-size: 24px;
+        }
+        
+        .music-control.playing {
+            animation: pulse-music 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-music {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(246, 211, 101, 0.4); }
+            50% { box-shadow: 0 0 0 10px rgba(246, 211, 101, 0); }
+        }
+        
         /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -361,6 +411,8 @@
             .logo-wrapper { width: 100px; height: 100px; }
             .school-name { font-size: 0.9rem; }
             .prayer { font-size: 0.8rem; padding: 10px; }
+            .music-control { width: 45px; height: 45px; bottom: 15px; right: 15px; }
+            .music-icon { font-size: 20px; }
         }
         
         /* Particles */
@@ -403,6 +455,18 @@
     </style>
 </head>
 <body>
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="background-music.mp3" type="audio/mpeg">
+        <source src="background-music.ogg" type="audio/ogg">
+        Browser Anda tidak mendukung pemutar audio.
+    </audio>
+    
+    <!-- Music Control Button -->
+    <div class="music-control" id="musicBtn" onclick="toggleMusic()">
+        <span class="music-icon" id="musicIcon">🎵</span>
+    </div>
+    
     <!-- Stars Background -->
     <div class="stars" id="stars"></div>
     
@@ -457,13 +521,17 @@
         
         <div class="ramadhan-kareem-text">Ramadhan Kareem</div>
         
-        <h1 class="greeting">Selamat Menunaikan Ibadah Puasa</h1>
+        <h1 class="greeting">
+            <span class="greeting-line">Selamat Menunaikan</span>
+            <span class="greeting-line">Ibadah Puasa</span>
+        </h1>
         
         <div class="decorative-line"></div>
         
         <p class="subtitle">
-            Marhaban Ya Ramadhan<br>
-            Bulan penuh berkah, ampunan, dan keberkahan.
+            <span class="subtitle-line">Marhaban Ya Ramadhan</span>
+            <span class="subtitle-line">Bulan penuh berkah,</span>
+            <span class="subtitle-line">ampunan, dan keberkahan.</span>
         </p>
         
         <div class="prayer">
@@ -501,6 +569,50 @@
             particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
             particlesContainer.appendChild(particle);
         }
+        
+        // Music Control
+        const music = document.getElementById('bgMusic');
+        const musicBtn = document.getElementById('musicBtn');
+        const musicIcon = document.getElementById('musicIcon');
+        let isPlaying = false;
+        
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                musicIcon.textContent = '🔇';
+                musicBtn.classList.remove('playing');
+            } else {
+                music.play().catch(e => console.log('Autoplay prevented:', e));
+                musicIcon.textContent = '🎵';
+                musicBtn.classList.add('playing');
+            }
+            isPlaying = !isPlaying;
+        }
+        
+        // Try autoplay on page load (may be blocked by browser)
+        window.addEventListener('load', () => {
+            music.volume = 0.5; // Set volume to 50%
+            music.play().then(() => {
+                isPlaying = true;
+                musicIcon.textContent = '🎵';
+                musicBtn.classList.add('playing');
+            }).catch(() => {
+                // Autoplay blocked, wait for user interaction
+                musicIcon.textContent = '🔇';
+            });
+        });
+        
+        // Also try to play on first click anywhere on page
+        document.addEventListener('click', function initAudio() {
+            if (!isPlaying) {
+                music.play().then(() => {
+                    isPlaying = true;
+                    musicIcon.textContent = '🎵';
+                    musicBtn.classList.add('playing');
+                }).catch(e => console.log('Play failed:', e));
+            }
+            document.removeEventListener('click', initAudio);
+        }, { once: true });
     </script>
 </body>
 </html>
