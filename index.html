@@ -54,7 +54,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(20, 10, 30, 0.7) 0%, rgba(30, 15, 40, 0.75) 50%, rgba(15, 10, 25, 0.8) 100%);
+            background: linear-gradient(to bottom, rgba(10, 5, 20, 0.85) 0%, rgba(20, 10, 30, 0.9) 50%, rgba(5, 5, 15, 0.95) 100%);
             z-index: 0;
             pointer-events: none;
         }
@@ -85,7 +85,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(15, 10, 25, 0.8) 0%, rgba(25, 15, 35, 0.85) 100%);
+            background: linear-gradient(to bottom, rgba(5, 5, 15, 0.9) 0%, rgba(15, 10, 25, 0.95) 100%);
             z-index: -1;
         }
         
@@ -103,26 +103,23 @@
             z-index: 1;
         }
         
+        /* BINGKAI LOGO HALAMAN 1 DIPERKECIL */
         .landing-logo {
-            width: min(50vw, 220px);
-            height: min(50vw, 220px);
-            min-width: 150px;
-            min-height: 150px;
-            max-width: 250px;
-            max-height: 250px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             background: linear-gradient(145deg, #6B3E0A 0%, #8B4513 100%);
-            padding: 3px;
+            padding: 4px; /* Dari 10px jadi 4px */
             margin: 0 auto 30px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4),
-                        0 0 0 1px rgba(255, 215, 0, 0.5),
-                        0 0 30px rgba(255, 215, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4),
+                        0 0 0 2px rgba(255, 215, 0, 0.3), /* Dari 3px jadi 2px */
+                        0 0 20px rgba(255, 215, 0, 0.2); /* Dari 30px jadi 20px */
             animation: pulse-glow 2s ease-in-out infinite;
         }
         
         @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 15px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(255, 215, 0, 0.5), 0 0 30px rgba(255, 215, 0, 0.2); }
-            50% { box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 0 1px rgba(255, 215, 0, 0.8), 0 0 50px rgba(255, 215, 0, 0.4); }
+            0%, 100% { box-shadow: 0 10px 30px rgba(0,0,0,0.4), 0 0 0 2px rgba(255, 215, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.2); }
+            50% { box-shadow: 0 15px 40px rgba(0,0,0,0.5), 0 0 0 2px rgba(255, 215, 0, 0.5), 0 0 35px rgba(255, 215, 0, 0.4); }
         }
         
         .landing-logo img {
@@ -253,7 +250,7 @@
             animation: fadeInUp 1s ease-out 0.5s forwards;
         }
         
-        /* LOGO DIMAKSIMALKAN - Responsive sizing */
+        /* BINGKAI LOGO HALAMAN 2 DIPERKECIL */
         .logo-wrapper {
             width: min(35vw, 180px);
             height: min(35vw, 180px);
@@ -263,18 +260,18 @@
             max-height: 200px;
             border-radius: 50%;
             background: linear-gradient(145deg, #6B3E0A 0%, #8B4513 100%);
-            padding: min(2vw, 10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4),
-                        0 0 0 1px rgba(255, 215, 0, 0.5),
-                        0 0 20px rgba(255, 215, 0, 0.3);
+            padding: min(1vw, 5px); /* Dari min(2vw, 10px) jadi min(1vw, 5px) */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4), /* Dari 15px jadi 10px */
+                        0 0 0 2px rgba(255, 215, 0, 0.3), /* Dari 3px jadi 2px */
+                        0 0 15px rgba(255, 215, 0, 0.3); /* Dari 20px jadi 15px */
             animation: pulse 3s ease-in-out infinite;
             position: relative;
             overflow: hidden;
         }
         
         @keyframes pulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 15px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(255, 215, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.3); }
-            50% { transform: scale(1.02); box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 0 1px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.5); }
+            0%, 100% { transform: scale(1); box-shadow: 0 10px 30px rgba(0,0,0,0.4), 0 0 0 2px rgba(255, 215, 0, 0.3), 0 0 15px rgba(255, 215, 0, 0.3); }
+            50% { transform: scale(1.02); box-shadow: 0 15px 40px rgba(0,0,0,0.5), 0 0 0 2px rgba(255, 215, 0, 0.5), 0 0 25px rgba(255, 215, 0, 0.5); }
         }
         
         .logo-wrapper img {
@@ -339,6 +336,33 @@
         }
         
         /* SIGNATURE DIHALANGKAN DARI HALAMAN 2 */
+        
+        .next-btn {
+            margin-top: 25px;
+            background: transparent;
+            color: #FFD700;
+            border: 2px solid #FFD700;
+            padding: 12px 35px;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1.0s forwards;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .next-btn:hover {
+            background: rgba(255, 215, 0, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+        }
+        
+        /* SWIPE HINT DIHAPUS DARI HALAMAN 2 */
+        .swipe-hint {
+            display: none;
+        }
         
         /* ========== HALAMAN 3: DOA ========== */
         .page-three {
@@ -439,6 +463,35 @@
             display: block;
             margin-top: 5px;
             text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+        
+        .back-btn {
+            margin-top: 25px;
+            background: transparent;
+            color: rgba(255,255,255,0.7);
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 10px 25px;
+            font-size: 0.9rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .page-three.visible .back-btn {
+            animation: fadeIn 1s ease-out 1.2s forwards;
+        }
+        
+        .back-btn:hover {
+            background: rgba(255,255,255,0.1);
+            color: #FFD700;
+            border-color: #FFD700;
+        }
+        
+        /* SWIPE HINT DIHAPUS DARI HALAMAN 3 */
+        .swipe-hint-back {
+            display: none;
         }
         
         /* ========== DEKORASI UMUM ========== */
@@ -630,12 +683,7 @@
             .landing-title { font-size: 2rem; }
             .landing-subtitle { font-size: 1rem; }
             .open-btn { padding: 15px 40px; font-size: 1.1rem; }
-            .landing-logo { 
-                width: min(55vw, 200px);
-                height: min(55vw, 200px);
-                min-width: 140px;
-                min-height: 140px;
-            }
+            .landing-logo { width: 120px; height: 120px; }
             
             .arabic-text { font-size: 2rem; }
             .ramadhan-kareem-text { font-size: 1.6rem; }
@@ -650,12 +698,14 @@
             }
             .music-control { width: 45px; height: 45px; bottom: 15px; right: 15px; }
             .music-icon { font-size: 20px; }
+            .next-btn { padding: 10px 30px; font-size: 0.9rem; }
             
             .page-three-header { font-size: 0.9rem; letter-spacing: 1px; }
             .page-three-greeting { font-size: 1.4rem; }
             .prayer { font-size: 0.85rem; padding: 15px; max-width: 320px; }
             .signature { font-size: 0.8rem; }
             .signature strong { font-size: 0.9rem; }
+            .back-btn { padding: 8px 20px; font-size: 0.85rem; }
         }
     </style>
 </head>
@@ -752,9 +802,12 @@
         </p>
         
         <!-- SIGNATURE DIHAPUS DARI HALAMAN 2 -->
-        <!-- TOMBOL NEXT DIHAPUS -->
-        <!-- HINT SWIPE DIHAPUS -->
         
+        <button class="next-btn" onclick="openPageThree()">
+            Lanjutkan →
+        </button>
+        
+        <!-- SWIPE HINT DIHAPUS -->
     </div>
     
     <!-- ========== HALAMAN 3: DOA (TANPA RAMADHAN KAREEM) ========== -->
@@ -777,9 +830,11 @@
             <strong>PAUD ASIFA SIANOK</strong>
         </div>
         
-        <!-- TOMBOL BACK DIHAPUS -->
-        <!-- HINT SWIPE BACK DIHAPUS -->
+        <button class="back-btn" onclick="backToPageTwo()">
+            ← Kembali
+        </button>
         
+        <!-- SWIPE HINT DIHAPUS -->
     </div>
     
     <script>
@@ -816,8 +871,46 @@
         const musicIcon = document.getElementById('musicIcon');
         let isPlaying = false;
         
-        // Touch/Swipe handling - SWIPE FUNCTIONALITY DIHAPUS
-        // Hanya menyisakan fungsi navigasi dasar jika diperlukan
+        // Touch/Swipe handling
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let touchStartY = 0;
+        let touchEndY = 0;
+        const minSwipeDistance = 50;
+        
+        function handleTouchStart(e) {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }
+        
+        function handleTouchEnd(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            handleSwipe();
+        }
+        
+        function handleSwipe() {
+            const swipeDistance = touchEndX - touchStartX;
+            const verticalDistance = Math.abs(touchEndY - touchStartY);
+            
+            // Prevent swipe if vertical scroll is dominant
+            if (verticalDistance > Math.abs(swipeDistance)) return;
+            
+            // Swipe Left (Halaman 2 -> 3)
+            if (swipeDistance < -minSwipeDistance && mainContainer.classList.contains('visible')) {
+                openPageThree();
+            }
+            // Swipe Right (Halaman 3 -> 2)
+            else if (swipeDistance > minSwipeDistance && pageThree.classList.contains('visible')) {
+                backToPageTwo();
+            }
+        }
+        
+        // Add touch listeners
+        mainContainer.addEventListener('touchstart', handleTouchStart, {passive: true});
+        mainContainer.addEventListener('touchend', handleTouchEnd, {passive: true});
+        pageThree.addEventListener('touchstart', handleTouchStart, {passive: true});
+        pageThree.addEventListener('touchend', handleTouchEnd, {passive: true});
         
         // Halaman 1 → Halaman 2
         function openGreeting() {
@@ -833,6 +926,26 @@
             landingPage.classList.add('hidden');
             
             setTimeout(() => {
+                mainContainer.classList.add('visible');
+            }, 100);
+        }
+        
+        // Halaman 2 → Halaman 3
+        function openPageThree() {
+            mainContainer.classList.remove('visible');
+            mainContainer.classList.add('hidden');
+            
+            setTimeout(() => {
+                pageThree.classList.add('visible');
+            }, 100);
+        }
+        
+        // Halaman 3 → Halaman 2
+        function backToPageTwo() {
+            pageThree.classList.remove('visible');
+            
+            setTimeout(() => {
+                mainContainer.classList.remove('hidden');
                 mainContainer.classList.add('visible');
             }, 100);
         }
