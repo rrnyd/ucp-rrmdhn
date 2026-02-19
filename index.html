@@ -7,7 +7,7 @@
     
     <meta property="og:title" content="|| PAUD ASIFA SIANOK || Selamat Ramadhan">
     <meta property="og:description" content="Marhaban Ya Ramadhan. Ucapan selamat menunaikan ibadah puasa dari PAUD Asifa Sianok.">
-    <meta property="og:image" content="https://rrnyd.github.io/ucp-rrmdhn/preview.jpg">
+    <meta property="og:image" content="https://rrnyd.github.io/ucp-rrmdhn/preview.png">
     <meta property="og:image:width" content="1128">
     <meta property="og:image:height" content="629">
     <meta property="og:url" content="https://rrnyd.github.io/ucp-rrmdhn">
@@ -16,7 +16,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="PAUD ASIFA SIANOK | Selamat Ramadhan">
     <meta name="twitter:description" content="Marhaban Ya Ramadhan. Ucapan selamat menunaikan ibadah puasa dari PAUD Asifa Sianok.">
-    <meta name="twitter:image" content="https://rrnyd.github.io/ucp-rrmdhn/preview.jpg">
+    <meta name="twitter:image" content="https://rrnyd.github.io/ucp-rrmdhn/preview.png">
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap');
@@ -204,6 +204,7 @@
             opacity: 0;
             transform: scale(0.95);
             transition: opacity 0.8s ease, transform 0.8s ease;
+            touch-action: pan-y;
         }
         
         .container.visible {
@@ -248,12 +249,17 @@
             animation: fadeInUp 1s ease-out 0.5s forwards;
         }
         
+        /* LOGO DIMAKSIMALKAN - Responsive sizing */
         .logo-wrapper {
-            width: 100px;
-            height: 100px;
+            width: min(35vw, 180px);
+            height: min(35vw, 180px);
+            min-width: 120px;
+            min-height: 120px;
+            max-width: 200px;
+            max-height: 200px;
             border-radius: 50%;
             background: linear-gradient(145deg, #6B3E0A 0%, #8B4513 100%);
-            padding: 6px;
+            padding: min(2vw, 10px);
             box-shadow: 0 15px 40px rgba(0,0,0,0.4),
                         0 0 0 3px rgba(255, 215, 0, 0.3),
                         0 0 20px rgba(255, 215, 0, 0.3);
@@ -352,6 +358,18 @@
             box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
         }
         
+        .swipe-hint {
+            margin-top: 15px;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.75rem;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 1.2s forwards;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        
         /* ========== HALAMAN 3: DOA ========== */
         .page-three {
             position: fixed;
@@ -370,6 +388,7 @@
             visibility: hidden;
             transform: scale(0.95);
             transition: opacity 0.8s ease, visibility 0.8s ease, transform 0.8s ease;
+            touch-action: pan-y;
         }
         
         .page-three.visible {
@@ -474,6 +493,18 @@
             background: rgba(255,255,255,0.1);
             color: #FFD700;
             border-color: #FFD700;
+        }
+        
+        .swipe-hint-back {
+            margin-top: 15px;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.75rem;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 1.4s forwards;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
         }
         
         /* ========== DEKORASI UMUM ========== */
@@ -672,7 +703,12 @@
             .greeting { font-size: 0.8rem; max-width: 350px; }
             .subtitle { font-size: 0.8rem; }
             .moon { width: 60px; height: 60px; top: 10px; right: 10px; }
-            .logo-wrapper { width: 80px; height: 80px; }
+            .logo-wrapper { 
+                width: min(40vw, 160px);
+                height: min(40vw, 160px);
+                min-width: 100px;
+                min-height: 100px;
+            }
             .music-control { width: 45px; height: 45px; bottom: 15px; right: 15px; }
             .music-icon { font-size: 20px; }
             .next-btn { padding: 10px 30px; font-size: 0.9rem; }
@@ -691,7 +727,7 @@
     <div class="landing-page" id="landingPage">
         <div class="landing-content">
             <div class="landing-logo">
-                <img src="logo.jpg" alt="Logo PAUD Asifa Sianok">
+                <img src="logo.png" alt="Logo PAUD Asifa Sianok">
             </div>
             <h1 class="landing-title">Ramadhan Kareem</h1>
             <p class="landing-subtitle">PAUD Asifa Sianok mengucapkan</p>
@@ -754,7 +790,7 @@
         
         <div class="logo-container">
             <div class="logo-wrapper">
-                <img src="logo.jpg" alt="Logo">
+                <img src="logo.png" alt="Logo">
             </div>
         </div>
         
@@ -783,6 +819,11 @@
         <button class="next-btn" onclick="openPageThree()">
             Lanjutkan →
         </button>
+        
+        <div class="swipe-hint">
+            <span>👆</span>
+            <span>Swipe ke kiri untuk halaman berikutnya</span>
+        </div>
     </div>
     
     <!-- ========== HALAMAN 3: DOA (TANPA RAMADHAN KAREEM) ========== -->
@@ -808,6 +849,11 @@
         <button class="back-btn" onclick="backToPageTwo()">
             ← Kembali
         </button>
+        
+        <div class="swipe-hint-back">
+            <span>👆</span>
+            <span>Swipe ke kanan untuk kembali</span>
+        </div>
     </div>
     
     <script>
@@ -843,6 +889,47 @@
         const musicBtn = document.getElementById('musicBtn');
         const musicIcon = document.getElementById('musicIcon');
         let isPlaying = false;
+        
+        // Touch/Swipe handling
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let touchStartY = 0;
+        let touchEndY = 0;
+        const minSwipeDistance = 50;
+        
+        function handleTouchStart(e) {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }
+        
+        function handleTouchEnd(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            handleSwipe();
+        }
+        
+        function handleSwipe() {
+            const swipeDistance = touchEndX - touchStartX;
+            const verticalDistance = Math.abs(touchEndY - touchStartY);
+            
+            // Prevent swipe if vertical scroll is dominant
+            if (verticalDistance > Math.abs(swipeDistance)) return;
+            
+            // Swipe Left (Halaman 2 -> 3)
+            if (swipeDistance < -minSwipeDistance && mainContainer.classList.contains('visible')) {
+                openPageThree();
+            }
+            // Swipe Right (Halaman 3 -> 2)
+            else if (swipeDistance > minSwipeDistance && pageThree.classList.contains('visible')) {
+                backToPageTwo();
+            }
+        }
+        
+        // Add touch listeners
+        mainContainer.addEventListener('touchstart', handleTouchStart, {passive: true});
+        mainContainer.addEventListener('touchend', handleTouchEnd, {passive: true});
+        pageThree.addEventListener('touchstart', handleTouchStart, {passive: true});
+        pageThree.addEventListener('touchend', handleTouchEnd, {passive: true});
         
         // Halaman 1 → Halaman 2
         function openGreeting() {
