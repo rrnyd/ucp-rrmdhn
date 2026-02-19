@@ -1,4 +1,4 @@
-ko<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -104,6 +104,28 @@ ko<!DOCTYPE html>
             animation: fadeIn 1s ease-out;
             position: relative;
             z-index: 1;
+        }
+        
+        /* TAMBAHAN: Style untuk teks di atas logo */
+        .landing-header-text {
+            color: #FFD700;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+        
+        .landing-header-text .line1 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        .landing-header-text .line2 {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: rgba(255, 215, 0, 0.9);
+            display: block;
         }
         
         /* LOGO HALAMAN 1 - BORDER SANGAT TIPIS */
@@ -798,6 +820,10 @@ ko<!DOCTYPE html>
             .open-btn { padding: 15px 40px; font-size: 1.1rem; }
             .landing-logo { width: 180px; height: 180px; }
             
+            /* TAMBAHAN: Responsive untuk teks header di mobile */
+            .landing-header-text .line1 { font-size: 0.95rem; }
+            .landing-header-text .line2 { font-size: 0.8rem; }
+            
             .arabic-text { font-size: 2rem; }
             .ramadhan-kareem-text { font-size: 1.6rem; }
             .greeting { font-size: 0.8rem; max-width: 350px; }
@@ -843,10 +869,17 @@ ko<!DOCTYPE html>
     <!-- ========== HALAMAN 1: LANDING PAGE ========== -->
     <div class="landing-page" id="landingPage">
         <div class="landing-content">
+            <!-- TAMBAHAN: Teks di atas logo -->
+            <div class="landing-header-text">
+                <span class="line1">Keluarga Besar PAUD Asifa Sianok</span>
+                <span class="line2">Nagari Sianok Pasar Baru</span>
+            </div>
+            
             <div class="landing-logo">
                 <img src="logo.png" alt="Logo PAUD Asifa Sianok">
             </div>
-            <h1 class="landing-title">Ramadhan Kareem</h1>
+            <!-- PERUBAHAN: Ramadhan Kareem → Marhaban Ya Ramadhan -->
+            <h1 class="landing-title">Marhaban Ya Ramadhan</h1>
             <p class="landing-subtitle">PAUD Asifa Sianok mengucapkan</p>
             <button class="open-btn" onclick="openGreeting()">
                 <span class="btn-icon">✨</span>
