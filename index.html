@@ -430,41 +430,6 @@
             animation: fadeInUp 1s ease-out 0.8s forwards;
         }
         
-        /* STYLE UNTUK FOTO DI HALAMAN 3 - DIPERBESAR HAMPIR SELEBAR HALAMAN */
-        .photo-container {
-            margin: 15px 0;
-            opacity: 0;
-            animation: fadeInUp 1s ease-out 0.9s forwards;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
-        
-        .photo-wrapper {
-            width: 90vw;
-            height: auto;
-            max-width: 800px;
-            max-height: 50vh;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4),
-                        0 0 0 2px rgba(255, 215, 0, 0.3);
-            position: relative;
-            margin: 0 auto;
-        }
-        
-        .photo-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-            display: block;
-        }
-        
-        .photo-wrapper:hover img {
-            transform: scale(1.05);
-        }
-        
         .signature {
             margin-top: 15px;
             color: rgba(255,255,255,0.9);
@@ -574,6 +539,39 @@
         }
         
         .page-four-photo-wrapper:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* STYLE UNTUK GALERI FOTO */
+        .gallery-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            max-width: 900px;
+            margin: 20px 0;
+        }
+        
+        .gallery-photo-wrapper {
+            width: 100%;
+            height: auto;
+            max-height: 50vh;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5),
+                        0 0 0 3px rgba(255, 215, 0, 0.4);
+            position: relative;
+        }
+        
+        .gallery-photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            display: block;
+        }
+        
+        .gallery-photo-wrapper:hover img {
             transform: scale(1.05);
         }
         
@@ -843,19 +841,15 @@
             .signature { font-size: 0.8rem; }
             .signature strong { font-size: 0.9rem; }
             
-            /* Responsive untuk foto di mobile - DIPERBESAR */
-            .photo-wrapper {
-                width: 95vw;
-                max-width: none;
-                max-height: 45vh;
-            }
-            
             .page-four-header { font-size: 1rem; }
             .page-four-subheader { font-size: 0.9rem; }
             .page-four-photo-wrapper {
                 width: 98vw;
                 max-width: none;
                 max-height: 50vh;
+            }
+            .gallery-photo-wrapper {
+                max-height: 40vh;
             }
             .page-four-footer { font-size: 0.8rem; }
             .page-four-footer strong { font-size: 0.95rem; }
@@ -972,28 +966,22 @@
         <div class="prayer">
             "Wahai orang-orang yang beriman diwajibkan atas kamu berpuasa sebagaimana diwajibkan orang-orang sebelum kamu agar kamu bertakwa"
         </div>
-        
-        <div class="prayer" style="margin-top: 15px;">
-            "Ya allah terimalah puasa kami, perbanyaklah rezeki kami, dan janganlah engkau jadikan kami termasuk orang-orang yang merugi."
-        </div>
     </div>
     
-    <!-- ========== HALAMAN 4: FOTO KELUARGA BESAR ========== -->
+    <!-- ========== HALAMAN 4: GALERI ========== -->
     <div class="page-four" id="pageFour">
-        <div class="page-four-header">Selamat Menunaikan Ibadah Puasa</div>
-        <div class="page-four-subheader">Ramadhan 1447 Hijriah</div>
+        <div class="page-four-header">Gallery</div>
         
         <div class="decorative-line"></div>
         
-        <!-- FOTO DIPINDAHKAN KE HALAMAN 4 -->
-        <div class="page-four-photo-container">
-            <div class="page-four-photo-wrapper">
-                <img src="photo.jpg" alt="Foto Keluarga Besar PAUD Asifa Sianok">
+        <!-- GALERI FOTO -->
+        <div class="gallery-container">
+            <div class="gallery-photo-wrapper">
+                <img src="photo-01.jpg" alt="Foto 01 - PAUD Asifa Sianok">
             </div>
-        </div>
-        
-        <div class="page-four-footer">
-            <strong>Ya allah terimalah puasa kami, perbanyaklah rezeki kami, dan janganlah engkau jadikan kami termasuk orang-orang yang merugi.</strong>
+            <div class="gallery-photo-wrapper">
+                <img src="photo-02.jpg" alt="Foto 02 - PAUD Asifa Sianok">
+            </div>
         </div>
     </div>
     
