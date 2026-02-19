@@ -423,20 +423,21 @@
             animation: fadeInUp 1s ease-out 0.8s forwards;
         }
         
-        /* STYLE UNTUK FOTO DI HALAMAN 3 */
+        /* STYLE UNTUK FOTO DI HALAMAN 3 - DIPERBESAR HAMPIR SELEBAR HALAMAN */
         .photo-container {
             margin: 15px 0;
             opacity: 0;
             animation: fadeInUp 1s ease-out 0.9s forwards;
+            width: 100%;
+            display: flex;
+            justify-content: center;
         }
         
         .photo-wrapper {
-            width: min(60vw, 300px);
-            height: min(40vw, 200px);
-            min-width: 200px;
-            min-height: 130px;
-            max-width: 350px;
-            max-height: 250px;
+            width: 90vw;
+            height: auto;
+            max-width: 800px;
+            max-height: 50vh;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.4),
@@ -450,6 +451,7 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.3s ease;
+            display: block;
         }
         
         .photo-wrapper:hover img {
@@ -719,12 +721,11 @@
             .signature { font-size: 0.8rem; }
             .signature strong { font-size: 0.9rem; }
             
-            /* Responsive untuk foto di mobile */
+            /* Responsive untuk foto di mobile - DIPERBESAR */
             .photo-wrapper {
-                width: min(70vw, 280px);
-                height: min(45vw, 180px);
-                min-width: 180px;
-                min-height: 120px;
+                width: 95vw;
+                max-width: none;
+                max-height: 45vh;
             }
             
             .page-indicator { bottom: 8px; gap: 10px; }
