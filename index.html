@@ -193,7 +193,7 @@
         
         /* ========== HALAMAN 2: UCAPAN MAAF ========== */
         .container {
-            position: fixed; /* Ubah dari relative ke fixed */
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
@@ -206,10 +206,10 @@
             padding: 10px;
             text-align: center;
             opacity: 0;
-            visibility: hidden; /* Tambah visibility hidden */
+            visibility: hidden;
             transform: scale(0.95);
             transition: opacity 0.8s ease, visibility 0.8s ease, transform 0.8s ease;
-            touch-action: pan-y pinch-zoom; /* Ubah touch-action */
+            touch-action: pan-y pinch-zoom;
         }
         
         .container.visible {
@@ -340,28 +340,6 @@
             margin: 1px 0;
         }
         
-        .next-btn {
-            margin-top: 25px;
-            background: transparent;
-            color: #FFD700;
-            border: 2px solid #FFD700;
-            padding: 12px 35px;
-            font-size: 1rem;
-            font-weight: 500;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            opacity: 0;
-            animation: fadeInUp 1s ease-out 1.0s forwards;
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        .next-btn:hover {
-            background: rgba(255, 215, 0, 0.2);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
-        }
-        
         /* ========== HALAMAN 3: DOA ========== */
         .page-three {
             position: fixed;
@@ -380,7 +358,7 @@
             visibility: hidden;
             transform: scale(0.95);
             transition: opacity 0.8s ease, visibility 0.8s ease, transform 0.8s ease;
-            touch-action: pan-y pinch-zoom; /* Ubah touch-action */
+            touch-action: pan-y pinch-zoom;
         }
         
         .page-three.visible {
@@ -461,28 +439,37 @@
             text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
         }
         
-        .back-btn {
-            margin-top: 25px;
-            background: transparent;
-            color: rgba(255,255,255,0.7);
-            border: 1px solid rgba(255,255,255,0.3);
-            padding: 10px 25px;
-            font-size: 0.9rem;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        /* ========== PAGE INDICATOR ========== */
+        .page-indicator {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 100;
             opacity: 0;
-            font-family: 'Poppins', sans-serif;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
         }
         
-        .page-three.visible .back-btn {
-            animation: fadeIn 1s ease-out 1.2s forwards;
+        .page-indicator.visible {
+            opacity: 1;
         }
         
-        .back-btn:hover {
-            background: rgba(255,255,255,0.1);
-            color: #FFD700;
-            border-color: #FFD700;
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(255, 215, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .dot.active {
+            background: #FFD700;
+            transform: scale(1.3);
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
         }
         
         /* ========== DEKORASI UMUM ========== */
@@ -689,14 +676,15 @@
             }
             .music-control { width: 45px; height: 45px; bottom: 15px; right: 15px; }
             .music-icon { font-size: 20px; }
-            .next-btn { padding: 10px 30px; font-size: 0.9rem; }
             
             .page-three-header { font-size: 0.9rem; letter-spacing: 1px; }
             .page-three-greeting { font-size: 1.4rem; }
             .prayer { font-size: 0.85rem; padding: 15px; max-width: 320px; }
             .signature { font-size: 0.8rem; }
             .signature strong { font-size: 0.9rem; }
-            .back-btn { padding: 8px 20px; font-size: 0.85rem; }
+            
+            .page-indicator { bottom: 25px; gap: 10px; }
+            .dot { width: 8px; height: 8px; }
         }
     </style>
 </head>
@@ -791,10 +779,6 @@
             <span class="subtitle-line">Bulan penuh berkah,</span>
             <span class="subtitle-line">ampunan, dan keberkahan.</span>
         </p>
-        
-        <button class="next-btn" onclick="openPageThree()">
-            Lanjutkan →
-        </button>
     </div>
     
     <!-- ========== HALAMAN 3: DOA ========== -->
@@ -813,10 +797,12 @@
             Dari kami keluarga besar<br>
             <strong>PAUD ASIFA SIANOK</strong>
         </div>
-        
-        <button class="back-btn" onclick="backToPageTwo()">
-            ← Kembali
-        </button>
+    </div>
+    
+    <!-- Page Indicator -->
+    <div class="page-indicator" id="pageIndicator">
+        <div class="dot active" id="dot1"></div>
+        <div class="dot" id="dot2"></div>
     </div>
     
     <script>
@@ -848,19 +834,23 @@
         const landingPage = document.getElementById('landingPage');
         const mainContainer = document.getElementById('mainContainer');
         const pageThree = document.getElementById('pageThree');
+        const pageIndicator = document.getElementById('pageIndicator');
+        const dot1 = document.getElementById('dot1');
+        const dot2 = document.getElementById('dot2');
         const music = document.getElementById('bgMusic');
         const musicBtn = document.getElementById('musicBtn');
         const musicIcon = document.getElementById('musicIcon');
         let isPlaying = false;
+        let currentPage = 1; // 1 = halaman 2 (ucapan), 2 = halaman 3 (doa)
         
-        // Touch/Swipe handling - PERBAIKAN UTAMA
+        // Touch/Swipe handling
         let touchStartX = 0;
         let touchEndX = 0;
         let touchStartY = 0;
         let touchEndY = 0;
         let touchStartTime = 0;
         const minSwipeDistance = 50;
-        const maxSwipeTime = 500; // ms
+        const maxSwipeTime = 500;
         
         function handleTouchStart(e) {
             touchStartX = e.changedTouches[0].screenX;
@@ -874,7 +864,6 @@
             const touchEndTime = new Date().getTime();
             const timeDiff = touchEndTime - touchStartTime;
             
-            // Hanya proses jika swipe cepat (kurang dari 500ms)
             if (timeDiff < maxSwipeTime) {
                 handleSwipe();
             }
@@ -884,32 +873,58 @@
             const swipeDistance = touchEndX - touchStartX;
             const verticalDistance = Math.abs(touchEndY - touchStartY);
             
-            // Debug log (bisa dihapus nanti)
-            console.log('Swipe distance:', swipeDistance, 'Vertical:', verticalDistance);
-            console.log('Container visible:', mainContainer.classList.contains('visible'));
-            console.log('PageThree visible:', pageThree.classList.contains('visible'));
-            
-            // Prevent swipe if vertical scroll is dominant (rasio 2:1)
+            // Prevent swipe if vertical scroll is dominant
             if (verticalDistance > Math.abs(swipeDistance) * 0.5) {
-                console.log('Blocked by vertical scroll');
                 return;
             }
             
-            // Swipe Left (Halaman 2 -> 3) - minimal 50px ke kiri
-            if (swipeDistance < -minSwipeDistance && mainContainer.classList.contains('visible')) {
-                console.log('Opening page 3...');
+            // Swipe Left (Halaman 2 -> 3)
+            if (swipeDistance < -minSwipeDistance && mainContainer.classList.contains('visible') && currentPage === 1) {
                 openPageThree();
             }
-            // Swipe Right (Halaman 3 -> 2) - minimal 50px ke kanan
-            else if (swipeDistance > minSwipeDistance && pageThree.classList.contains('visible')) {
-                console.log('Back to page 2...');
+            // Swipe Right (Halaman 3 -> 2)
+            else if (swipeDistance > minSwipeDistance && pageThree.classList.contains('visible') && currentPage === 2) {
                 backToPageTwo();
             }
         }
         
-        // Add touch listeners ke document untuk menangkap swipe di mana saja
+        // Add touch listeners
         document.addEventListener('touchstart', handleTouchStart, {passive: true});
         document.addEventListener('touchend', handleTouchEnd, {passive: true});
+        
+        // Mouse swipe support for desktop testing
+        let mouseDown = false;
+        let mouseStartX = 0;
+        
+        document.addEventListener('mousedown', (e) => {
+            mouseDown = true;
+            mouseStartX = e.screenX;
+        });
+        
+        document.addEventListener('mouseup', (e) => {
+            if (!mouseDown) return;
+            mouseDown = false;
+            const mouseEndX = e.screenX;
+            const swipeDistance = mouseEndX - mouseStartX;
+            
+            if (swipeDistance < -minSwipeDistance && mainContainer.classList.contains('visible') && currentPage === 1) {
+                openPageThree();
+            } else if (swipeDistance > minSwipeDistance && pageThree.classList.contains('visible') && currentPage === 2) {
+                backToPageTwo();
+            }
+        });
+        
+        // Update page indicator
+        function updateIndicator(page) {
+            currentPage = page;
+            if (page === 1) {
+                dot1.classList.add('active');
+                dot2.classList.remove('active');
+            } else {
+                dot1.classList.remove('active');
+                dot2.classList.add('active');
+            }
+        }
         
         // Halaman 1 → Halaman 2
         function openGreeting() {
@@ -926,6 +941,8 @@
             
             setTimeout(() => {
                 mainContainer.classList.add('visible');
+                pageIndicator.classList.add('visible');
+                updateIndicator(1);
             }, 100);
         }
         
@@ -935,6 +952,7 @@
             
             setTimeout(() => {
                 pageThree.classList.add('visible');
+                updateIndicator(2);
             }, 100);
         }
         
@@ -944,6 +962,7 @@
             
             setTimeout(() => {
                 mainContainer.classList.add('visible');
+                updateIndicator(1);
             }, 100);
         }
         
