@@ -19,7 +19,7 @@
     <meta name="twitter:image" content="https://rrnyd.github.io/ucp-rrmdhn/preview.jpg">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@100;200;300;400;600;700&display=swap');
         
         @font-face {
             font-family: 'Ramadhan Kareem';
@@ -221,7 +221,7 @@
         /* Logo sebagai background besar di belakang - DIPERBARUI */
         .background-logo {
             position: absolute;
-            top: 45%; /* Turun dari 40% ke 45% */
+            top: 45%;
             left: 50%;
             transform: translate(-50%, -50%);
             width: 90vh;
@@ -237,7 +237,6 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
-            /* Tidak ada filter blur */
         }
         
         /* Wrapper untuk konten di depan logo */
@@ -275,10 +274,12 @@
             letter-spacing: 1px;
         }
         
+        /* GREETING DENGAN FONT LEBIH RAMPING */
         .greeting {
             color: #fff;
-            font-size: 0.9rem;
-            font-weight: 300;
+            font-size: 0.95rem;
+            font-weight: 200; /* Extra Light - lebih ramping */
+            font-family: 'Poppins', sans-serif;
             margin: 8px 0 20px 0;
             text-shadow: 0 2px 10px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5);
             background: linear-gradient(135deg, #fff 0%, #FFD700 50%, #fff 100%);
@@ -287,11 +288,11 @@
             background-clip: text;
             background-size: 200% auto;
             animation: gradient 3s linear infinite, fadeInUp 1s ease-out 0.5s forwards;
-            line-height: 1.6;
+            line-height: 1.8; /* Sedikit lebih longgar untuk keterbacaan */
             opacity: 0;
-            max-width: 450px;
-            padding: 0 15px;
-            letter-spacing: 0.3px;
+            max-width: 480px;
+            padding: 0 20px;
+            letter-spacing: 0.5px; /* Sedikit lebih lebar untuk font tipis */
         }
         
         @keyframes gradient {
@@ -328,8 +329,6 @@
             margin: 1px 0;
         }
         
-        /* SIGNATURE DIHALANGKAN DARI HALAMAN 2 */
-        
         .next-btn {
             margin-top: 25px;
             background: transparent;
@@ -345,7 +344,6 @@
             animation: fadeInUp 1s ease-out 1.0s forwards;
             font-family: 'Poppins', sans-serif;
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-            /* Hapus backdrop-filter blur yang menyebabkan blur */
         }
         
         .next-btn:hover {
@@ -408,8 +406,6 @@
         .page-three.visible .page-three-greeting {
             animation: fadeInUp 1s ease-out 0.4s forwards;
         }
-        
-        /* TANPA ARABIC TEXT DAN RAMADHAN KAREEM DI HALAMAN 3 */
         
         .page-three .decorative-line {
             animation-delay: 0.6s;
@@ -671,15 +667,23 @@
             
             .arabic-text { font-size: 2rem; }
             .ramadhan-kareem-text { font-size: 1.6rem; }
-            .greeting { font-size: 0.8rem; max-width: 350px; }
+            
+            /* Font lebih kecil di mobile tapi tetap ramping */
+            .greeting { 
+                font-size: 0.85rem; 
+                max-width: 340px;
+                font-weight: 200;
+                line-height: 1.7;
+                letter-spacing: 0.3px;
+            }
+            
             .subtitle { font-size: 0.8rem; }
             .moon { width: 60px; height: 60px; top: 10px; right: 10px; }
             
-            /* Background logo lebih kecil di mobile */
             .background-logo {
                 width: 95vw;
                 height: 95vw;
-                top: 45%; /* Samakan dengan desktop */
+                top: 45%;
             }
             
             .music-control { width: 45px; height: 45px; bottom: 15px; right: 15px; }
@@ -700,7 +704,6 @@
     <div class="landing-page" id="landingPage">
         <div class="landing-content">
             <div class="landing-logo">
-                <!-- GANTI DARI logo.jpg KE logo.png -->
                 <img src="logo.png" alt="Logo PAUD Asifa Sianok">
             </div>
             <h1 class="landing-title">Ramadhan Kareem</h1>
