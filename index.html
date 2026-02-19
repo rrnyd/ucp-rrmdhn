@@ -430,26 +430,7 @@
             animation: fadeInUp 1s ease-out 0.8s forwards;
         }
         
-        .signature {
-            margin-top: 15px;
-            color: rgba(255,255,255,0.9);
-            font-size: 0.85rem;
-            opacity: 0;
-        }
-        
-        .page-three.visible .signature {
-            animation: fadeIn 1.5s ease-out 1.0s forwards;
-        }
-        
-        .signature strong {
-            color: #FFD700;
-            font-size: 1rem;
-            display: block;
-            margin-top: 5px;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-        }
-        
-        /* ========== HALAMAN 4: FOTO KELUARGA BESAR ========== */
+        /* ========== HALAMAN 4: GALERI ========== */
         .page-four {
             position: fixed;
             top: 0;
@@ -468,6 +449,7 @@
             transform: scale(0.95);
             transition: opacity 0.8s ease, visibility 0.8s ease, transform 0.8s ease;
             touch-action: pan-y pinch-zoom;
+            overflow-y: auto;
         }
         
         .page-four.visible {
@@ -478,35 +460,21 @@
         
         .page-four-header {
             color: #FFD700;
-            font-size: 1.2rem;
+            font-size: 2rem;
             font-weight: 600;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
             opacity: 0;
+            font-family: 'Ramadhan Kareem', cursive;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
         }
         
         .page-four.visible .page-four-header {
             animation: fadeInUp 1s ease-out 0.2s forwards;
         }
         
-        .page-four-subheader {
-            color: #fff;
-            font-size: 1rem;
-            margin-bottom: 20px;
-            opacity: 0;
-        }
-        
-        .page-four.visible .page-four-subheader {
-            animation: fadeInUp 1s ease-out 0.3s forwards;
-        }
-        
-        .page-four .decorative-line {
-            animation-delay: 0.4s;
-        }
-        
-        /* STYLE FOTO DI HALAMAN 4 */
         .page-four-photo-container {
-            margin: 20px 0;
+            margin: 10px 0;
             opacity: 0;
             width: 100%;
             display: flex;
@@ -514,18 +482,22 @@
         }
         
         .page-four.visible .page-four-photo-container {
-            animation: fadeInUp 1s ease-out 0.5s forwards;
+            animation: fadeInUp 1s ease-out 0.4s forwards;
+        }
+        
+        .page-four.visible .page-four-photo-container:nth-child(3) {
+            animation-delay: 0.6s;
         }
         
         .page-four-photo-wrapper {
-            width: 95vw;
+            width: 90vw;
             height: auto;
-            max-width: 900px;
-            max-height: 60vh;
-            border-radius: 15px;
+            max-width: 600px;
+            max-height: 35vh;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.5),
-                        0 0 0 3px rgba(255, 215, 0, 0.4);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4),
+                        0 0 0 2px rgba(255, 215, 0, 0.3);
             position: relative;
             margin: 0 auto;
         }
@@ -534,64 +506,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
             display: block;
-        }
-        
-        .page-four-photo-wrapper:hover img {
-            transform: scale(1.05);
-        }
-        
-        /* STYLE UNTUK GALERI FOTO */
-        .gallery-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            width: 100%;
-            max-width: 900px;
-            margin: 20px 0;
-        }
-        
-        .gallery-photo-wrapper {
-            width: 100%;
-            height: auto;
-            max-height: 50vh;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.5),
-                        0 0 0 3px rgba(255, 215, 0, 0.4);
-            position: relative;
-        }
-        
-        .gallery-photo-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-            display: block;
-        }
-        
-        .gallery-photo-wrapper:hover img {
-            transform: scale(1.05);
-        }
-        
-        .page-four-footer {
-            margin-top: 20px;
-            color: rgba(255,255,255,0.9);
-            font-size: 0.9rem;
-            opacity: 0;
-        }
-        
-        .page-four.visible .page-four-footer {
-            animation: fadeIn 1.5s ease-out 0.7s forwards;
-        }
-        
-        .page-four-footer strong {
-            color: #FFD700;
-            font-size: 1.1rem;
-            display: block;
-            margin-top: 5px;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
         }
         
         /* ========== PAGE INDICATOR ========== */
@@ -818,7 +733,6 @@
             .open-btn { padding: 15px 40px; font-size: 1.1rem; }
             .landing-logo { width: 180px; height: 180px; }
             
-            /* TAMBAHAN: Responsive untuk teks header di mobile */
             .landing-header-text .line1 { font-size: 0.95rem; }
             .landing-header-text .line2 { font-size: 0.8rem; }
             
@@ -838,21 +752,13 @@
             .page-three-header { font-size: 0.9rem; letter-spacing: 1px; }
             .page-three-greeting { font-size: 1.4rem; }
             .prayer { font-size: 0.85rem; padding: 15px; max-width: 320px; }
-            .signature { font-size: 0.8rem; }
-            .signature strong { font-size: 0.9rem; }
             
-            .page-four-header { font-size: 1rem; }
-            .page-four-subheader { font-size: 0.9rem; }
+            .page-four-header { font-size: 1.6rem; margin-bottom: 20px; }
             .page-four-photo-wrapper {
-                width: 98vw;
+                width: 95vw;
                 max-width: none;
-                max-height: 50vh;
+                max-height: 30vh;
             }
-            .gallery-photo-wrapper {
-                max-height: 40vh;
-            }
-            .page-four-footer { font-size: 0.8rem; }
-            .page-four-footer strong { font-size: 0.95rem; }
             
             .page-indicator { bottom: 8px; gap: 10px; }
             .dot { width: 8px; height: 8px; }
@@ -863,7 +769,6 @@
     <!-- ========== HALAMAN 1: LANDING PAGE ========== -->
     <div class="landing-page" id="landingPage">
         <div class="landing-content">
-            <!-- TAMBAHAN: Teks di atas logo -->
             <div class="landing-header-text">
                 <span class="line1">Keluarga Besar PAUD Asifa Sianok</span>
                 <span class="line2">Nagari Sianok Pasar Baru</span>
@@ -872,7 +777,6 @@
             <div class="landing-logo">
                 <img src="logo.png" alt="Logo PAUD Asifa Sianok">
             </div>
-            <!-- PERUBAHAN: Ramadhan Kareem → Marhaban Ya Ramadhan -->
             <h1 class="landing-title">Marhaban Ya Ramadhan</h1>
             <button class="open-btn" onclick="openGreeting()">
                 <span class="btn-icon">✨</span>
@@ -966,21 +870,25 @@
         <div class="prayer">
             "Wahai orang-orang yang beriman diwajibkan atas kamu berpuasa sebagaimana diwajibkan orang-orang sebelum kamu agar kamu bertakwa"
         </div>
+        
+        <div class="prayer" style="margin-top: 15px;">
+            "Ya allah terimalah puasa kami, perbanyaklah rezeki kami, dan janganlah engkau jadikan kami termasuk orang-orang yang merugi."
+        </div>
     </div>
     
     <!-- ========== HALAMAN 4: GALERI ========== -->
     <div class="page-four" id="pageFour">
-        <div class="page-four-header">Gallery</div>
+        <div class="page-four-header">Galery</div>
         
-        <div class="decorative-line"></div>
-        
-        <!-- GALERI FOTO -->
-        <div class="gallery-container">
-            <div class="gallery-photo-wrapper">
-                <img src="photo-01.jpg" alt="Foto 01 - PAUD Asifa Sianok">
+        <div class="page-four-photo-container">
+            <div class="page-four-photo-wrapper">
+                <img src="photo-01.jpg" alt="Foto 1">
             </div>
-            <div class="gallery-photo-wrapper">
-                <img src="photo-02.jpg" alt="Foto 02 - PAUD Asifa Sianok">
+        </div>
+        
+        <div class="page-four-photo-container">
+            <div class="page-four-photo-wrapper">
+                <img src="photo-02.jpg" alt="Foto 2">
             </div>
         </div>
     </div>
@@ -1030,7 +938,7 @@
         const musicBtn = document.getElementById('musicBtn');
         const musicIcon = document.getElementById('musicIcon');
         let isPlaying = false;
-        let currentPage = 1; // 1 = halaman 2 (ucapan), 2 = halaman 3 (doa), 3 = halaman 4 (foto)
+        let currentPage = 1;
         
         // Touch/Swipe handling
         let touchStartX = 0;
@@ -1062,12 +970,10 @@
             const swipeDistance = touchEndX - touchStartX;
             const verticalDistance = Math.abs(touchEndY - touchStartY);
             
-            // Prevent swipe if vertical scroll is dominant
             if (verticalDistance > Math.abs(swipeDistance) * 0.5) {
                 return;
             }
             
-            // Swipe Left (Next page)
             if (swipeDistance < -minSwipeDistance) {
                 if (currentPage === 1 && mainContainer.classList.contains('visible')) {
                     openPageThree();
@@ -1075,7 +981,6 @@
                     openPageFour();
                 }
             }
-            // Swipe Right (Previous page)
             else if (swipeDistance > minSwipeDistance) {
                 if (currentPage === 2 && pageThree.classList.contains('visible')) {
                     backToPageTwo();
@@ -1085,11 +990,9 @@
             }
         }
         
-        // Add touch listeners
         document.addEventListener('touchstart', handleTouchStart, {passive: true});
         document.addEventListener('touchend', handleTouchEnd, {passive: true});
         
-        // Mouse swipe support for desktop testing
         let mouseDown = false;
         let mouseStartX = 0;
         
@@ -1119,7 +1022,6 @@
             }
         });
         
-        // Update page indicator
         function updateIndicator(page) {
             currentPage = page;
             dot1.classList.remove('active');
@@ -1135,7 +1037,6 @@
             }
         }
         
-        // Halaman 1 → Halaman 2
         function openGreeting() {
             music.volume = 0.5;
             music.play().then(() => {
@@ -1155,7 +1056,6 @@
             }, 100);
         }
         
-        // Halaman 2 → Halaman 3
         function openPageThree() {
             mainContainer.classList.remove('visible');
             
@@ -1165,7 +1065,6 @@
             }, 100);
         }
         
-        // Halaman 3 → Halaman 2
         function backToPageTwo() {
             pageThree.classList.remove('visible');
             
@@ -1175,7 +1074,6 @@
             }, 100);
         }
         
-        // Halaman 3 → Halaman 4
         function openPageFour() {
             pageThree.classList.remove('visible');
             
@@ -1185,7 +1083,6 @@
             }, 100);
         }
         
-        // Halaman 4 → Halaman 3
         function backToPageThree() {
             pageFour.classList.remove('visible');
             
@@ -1195,7 +1092,6 @@
             }, 100);
         }
         
-        // Music Control
         function toggleMusic() {
             if (isPlaying) {
                 music.pause();
