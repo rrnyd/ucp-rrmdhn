@@ -462,6 +462,118 @@
             text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
         }
         
+        /* ========== HALAMAN 4: FOTO KELUARGA BESAR ========== */
+        .page-four {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.95);
+            transition: opacity 0.8s ease, visibility 0.8s ease, transform 0.8s ease;
+            touch-action: pan-y pinch-zoom;
+        }
+        
+        .page-four.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+        }
+        
+        .page-four-header {
+            color: #FFD700;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            opacity: 0;
+        }
+        
+        .page-four.visible .page-four-header {
+            animation: fadeInUp 1s ease-out 0.2s forwards;
+        }
+        
+        .page-four-subheader {
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            opacity: 0;
+        }
+        
+        .page-four.visible .page-four-subheader {
+            animation: fadeInUp 1s ease-out 0.3s forwards;
+        }
+        
+        .page-four .decorative-line {
+            animation-delay: 0.4s;
+        }
+        
+        /* STYLE FOTO DI HALAMAN 4 */
+        .page-four-photo-container {
+            margin: 20px 0;
+            opacity: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .page-four.visible .page-four-photo-container {
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+        }
+        
+        .page-four-photo-wrapper {
+            width: 95vw;
+            height: auto;
+            max-width: 900px;
+            max-height: 60vh;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5),
+                        0 0 0 3px rgba(255, 215, 0, 0.4);
+            position: relative;
+            margin: 0 auto;
+        }
+        
+        .page-four-photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            display: block;
+        }
+        
+        .page-four-photo-wrapper:hover img {
+            transform: scale(1.05);
+        }
+        
+        .page-four-footer {
+            margin-top: 20px;
+            color: rgba(255,255,255,0.9);
+            font-size: 0.9rem;
+            opacity: 0;
+        }
+        
+        .page-four.visible .page-four-footer {
+            animation: fadeIn 1.5s ease-out 0.7s forwards;
+        }
+        
+        .page-four-footer strong {
+            color: #FFD700;
+            font-size: 1.1rem;
+            display: block;
+            margin-top: 5px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+        
         /* ========== PAGE INDICATOR ========== */
         .page-indicator {
             position: fixed;
@@ -712,6 +824,16 @@
                 max-height: 45vh;
             }
             
+            .page-four-header { font-size: 1rem; }
+            .page-four-subheader { font-size: 0.9rem; }
+            .page-four-photo-wrapper {
+                width: 98vw;
+                max-width: none;
+                max-height: 50vh;
+            }
+            .page-four-footer { font-size: 0.8rem; }
+            .page-four-footer strong { font-size: 0.95rem; }
+            
             .page-indicator { bottom: 8px; gap: 10px; }
             .dot { width: 8px; height: 8px; }
         }
@@ -806,21 +928,16 @@
     
     <!-- ========== HALAMAN 3: DOA ========== -->
     <div class="page-three" id="pageThree">
-        <div class="page-three-header">Kami mengucapkan</div>
+        <div class="page-three-header">Keluarga Besar PAUD Asifa Sianok</div>
+        <div class="page-three-subheader">Nagari Sianok Pasar Baru</div>
+        <div class="page-three-subheader">Mengucapkan</div>
         
-        <div class="page-three-greeting">Selamat menunaikan ibadah puasa</div>
+        <div class="page-three-greeting">Marhaban Ya Ramadhan</div>
         
         <div class="decorative-line"></div>
         
         <div class="prayer">
-            "Ya Allah terimalah puasa kami, perbanyaklah rezeki kami, dan janganlah Engkau jadikan kami termasuk orang-orang yang merugi."
-        </div>
-        
-        <!-- FOTO DITAMBAHKAN DI SINI -->
-        <div class="photo-container">
-            <div class="photo-wrapper">
-                <img src="photo.jpg" alt="Foto Keluarga Besar PAUD Asifa Sianok">
-            </div>
+            "Wahai orang-orang yang beriman diwajibkan atas kamu berpuasa sebagaimana diwajibkan orang-orang sebelum kamu agar kamu bertakwa"
         </div>
         
         <div class="signature">
@@ -829,10 +946,31 @@
         </div>
     </div>
     
+    <!-- ========== HALAMAN 4: FOTO KELUARGA BESAR ========== -->
+    <div class="page-four" id="pageFour">
+        <div class="page-four-header">Keluarga Besar PAUD Asifa Sianok</div>
+        <div class="page-four-subheader">Nagari Sianok Pasar Baru</div>
+        
+        <div class="decorative-line"></div>
+        
+        <!-- FOTO DIPINDAHKAN KE HALAMAN 4 -->
+        <div class="page-four-photo-container">
+            <div class="page-four-photo-wrapper">
+                <img src="photo.jpg" alt="Foto Keluarga Besar PAUD Asifa Sianok">
+            </div>
+        </div>
+        
+        <div class="page-four-footer">
+            <strong>PAUD ASIFA SIANOK</strong><br>
+            Nagari Sianok Pasar Baru
+        </div>
+    </div>
+    
     <!-- Page Indicator -->
     <div class="page-indicator" id="pageIndicator">
         <div class="dot active" id="dot1"></div>
         <div class="dot" id="dot2"></div>
+        <div class="dot" id="dot3"></div>
     </div>
     
     <script>
@@ -864,14 +1002,16 @@
         const landingPage = document.getElementById('landingPage');
         const mainContainer = document.getElementById('mainContainer');
         const pageThree = document.getElementById('pageThree');
+        const pageFour = document.getElementById('pageFour');
         const pageIndicator = document.getElementById('pageIndicator');
         const dot1 = document.getElementById('dot1');
         const dot2 = document.getElementById('dot2');
+        const dot3 = document.getElementById('dot3');
         const music = document.getElementById('bgMusic');
         const musicBtn = document.getElementById('musicBtn');
         const musicIcon = document.getElementById('musicIcon');
         let isPlaying = false;
-        let currentPage = 1; // 1 = halaman 2 (ucapan), 2 = halaman 3 (doa)
+        let currentPage = 1; // 1 = halaman 2 (ucapan), 2 = halaman 3 (doa), 3 = halaman 4 (foto)
         
         // Touch/Swipe handling
         let touchStartX = 0;
@@ -908,13 +1048,21 @@
                 return;
             }
             
-            // Swipe Left (Halaman 2 -> 3)
-            if (swipeDistance < -minSwipeDistance && mainContainer.classList.contains('visible') && currentPage === 1) {
-                openPageThree();
+            // Swipe Left (Next page)
+            if (swipeDistance < -minSwipeDistance) {
+                if (currentPage === 1 && mainContainer.classList.contains('visible')) {
+                    openPageThree();
+                } else if (currentPage === 2 && pageThree.classList.contains('visible')) {
+                    openPageFour();
+                }
             }
-            // Swipe Right (Halaman 3 -> 2)
-            else if (swipeDistance > minSwipeDistance && pageThree.classList.contains('visible') && currentPage === 2) {
-                backToPageTwo();
+            // Swipe Right (Previous page)
+            else if (swipeDistance > minSwipeDistance) {
+                if (currentPage === 2 && pageThree.classList.contains('visible')) {
+                    backToPageTwo();
+                } else if (currentPage === 3 && pageFour.classList.contains('visible')) {
+                    backToPageThree();
+                }
             }
         }
         
@@ -937,22 +1085,34 @@
             const mouseEndX = e.screenX;
             const swipeDistance = mouseEndX - mouseStartX;
             
-            if (swipeDistance < -minSwipeDistance && mainContainer.classList.contains('visible') && currentPage === 1) {
-                openPageThree();
-            } else if (swipeDistance > minSwipeDistance && pageThree.classList.contains('visible') && currentPage === 2) {
-                backToPageTwo();
+            if (swipeDistance < -minSwipeDistance) {
+                if (currentPage === 1 && mainContainer.classList.contains('visible')) {
+                    openPageThree();
+                } else if (currentPage === 2 && pageThree.classList.contains('visible')) {
+                    openPageFour();
+                }
+            } else if (swipeDistance > minSwipeDistance) {
+                if (currentPage === 2 && pageThree.classList.contains('visible')) {
+                    backToPageTwo();
+                } else if (currentPage === 3 && pageFour.classList.contains('visible')) {
+                    backToPageThree();
+                }
             }
         });
         
         // Update page indicator
         function updateIndicator(page) {
             currentPage = page;
+            dot1.classList.remove('active');
+            dot2.classList.remove('active');
+            dot3.classList.remove('active');
+            
             if (page === 1) {
                 dot1.classList.add('active');
-                dot2.classList.remove('active');
-            } else {
-                dot1.classList.remove('active');
+            } else if (page === 2) {
                 dot2.classList.add('active');
+            } else if (page === 3) {
+                dot3.classList.add('active');
             }
         }
         
@@ -993,6 +1153,26 @@
             setTimeout(() => {
                 mainContainer.classList.add('visible');
                 updateIndicator(1);
+            }, 100);
+        }
+        
+        // Halaman 3 → Halaman 4
+        function openPageFour() {
+            pageThree.classList.remove('visible');
+            
+            setTimeout(() => {
+                pageFour.classList.add('visible');
+                updateIndicator(3);
+            }, 100);
+        }
+        
+        // Halaman 4 → Halaman 3
+        function backToPageThree() {
+            pageFour.classList.remove('visible');
+            
+            setTimeout(() => {
+                pageThree.classList.add('visible');
+                updateIndicator(2);
             }, 100);
         }
         
