@@ -420,6 +420,39 @@
             animation: fadeInUp 1s ease-out 0.8s forwards;
         }
         
+        /* STYLE UNTUK FOTO DI HALAMAN 3 */
+        .photo-container {
+            margin: 15px 0;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.9s forwards;
+        }
+        
+        .photo-wrapper {
+            width: min(60vw, 300px);
+            height: min(40vw, 200px);
+            min-width: 200px;
+            min-height: 130px;
+            max-width: 350px;
+            max-height: 250px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4),
+                        0 0 0 2px rgba(255, 215, 0, 0.3);
+            position: relative;
+            margin: 0 auto;
+        }
+        
+        .photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .photo-wrapper:hover img {
+            transform: scale(1.05);
+        }
+        
         .signature {
             margin-top: 15px;
             color: rgba(255,255,255,0.9);
@@ -683,6 +716,14 @@
             .signature { font-size: 0.8rem; }
             .signature strong { font-size: 0.9rem; }
             
+            /* Responsive untuk foto di mobile */
+            .photo-wrapper {
+                width: min(70vw, 280px);
+                height: min(45vw, 180px);
+                min-width: 180px;
+                min-height: 120px;
+            }
+            
             .page-indicator { bottom: 8px; gap: 10px; }
             .dot { width: 8px; height: 8px; }
         }
@@ -790,6 +831,13 @@
         
         <div class="prayer">
             "Ya Allah terimalah puasa kami, perbanyaklah rezeki kami, dan janganlah Engkau jadikan kami termasuk orang-orang yang merugi."
+        </div>
+        
+        <!-- FOTO DITAMBAHKAN DI SINI -->
+        <div class="photo-container">
+            <div class="photo-wrapper">
+                <img src="photo.png" alt="Foto Keluarga Besar PAUD Asifa Sianok">
+            </div>
         </div>
         
         <div class="signature">
