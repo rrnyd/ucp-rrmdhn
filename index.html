@@ -103,23 +103,23 @@
             z-index: 1;
         }
         
-        /* LOGO HALAMAN 1 DIPERBESAR */
+        /* LOGO HALAMAN 1 - BORDER DIPERKECIL */
         .landing-logo {
             width: 220px;
             height: 220px;
             border-radius: 50%;
             background: linear-gradient(145deg, #6B3E0A 0%, #8B4513 100%);
-            padding: 5px;
+            padding: 2px;
             margin: 0 auto 30px;
             box-shadow: 0 15px 40px rgba(0,0,0,0.5),
-                        0 0 0 3px rgba(255, 215, 0, 0.4),
+                        0 0 0 1px rgba(255, 215, 0, 0.4),
                         0 0 30px rgba(255, 215, 0, 0.3);
             animation: pulse-glow 2s ease-in-out infinite;
         }
         
         @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 15px 40px rgba(0,0,0,0.5), 0 0 0 3px rgba(255, 215, 0, 0.4), 0 0 30px rgba(255, 215, 0, 0.3); }
-            50% { box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 0 3px rgba(255, 215, 0, 0.6), 0 0 50px rgba(255, 215, 0, 0.5); }
+            0%, 100% { box-shadow: 0 15px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(255, 215, 0, 0.4), 0 0 30px rgba(255, 215, 0, 0.3); }
+            50% { box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 0 1px rgba(255, 215, 0, 0.6), 0 0 50px rgba(255, 215, 0, 0.5); }
         }
         
         .landing-logo img {
@@ -255,7 +255,7 @@
             animation: fadeInUp 1s ease-out 0.5s forwards;
         }
         
-        /* LOGO HALAMAN 2 DIPERBESAR */
+        /* LOGO HALAMAN 2 - BORDER DIPERKECIL */
         .logo-wrapper {
             width: min(50vw, 280px);
             height: min(50vw, 280px);
@@ -265,9 +265,9 @@
             max-height: 320px;
             border-radius: 50%;
             background: linear-gradient(145deg, #6B3E0A 0%, #8B4513 100%);
-            padding: min(1.5vw, 8px);
+            padding: min(0.5vw, 3px);
             box-shadow: 0 15px 40px rgba(0,0,0,0.5),
-                        0 0 0 3px rgba(255, 215, 0, 0.4),
+                        0 0 0 1px rgba(255, 215, 0, 0.4),
                         0 0 30px rgba(255, 215, 0, 0.4);
             animation: pulse 3s ease-in-out infinite;
             position: relative;
@@ -275,8 +275,8 @@
         }
         
         @keyframes pulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 15px 40px rgba(0,0,0,0.5), 0 0 0 3px rgba(255, 215, 0, 0.4), 0 0 30px rgba(255, 215, 0, 0.4); }
-            50% { transform: scale(1.02); box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 0 3px rgba(255, 215, 0, 0.6), 0 0 50px rgba(255, 215, 0, 0.6); }
+            0%, 100% { transform: scale(1); box-shadow: 0 15px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(255, 215, 0, 0.4), 0 0 30px rgba(255, 215, 0, 0.4); }
+            50% { transform: scale(1.02); box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 0 1px rgba(255, 215, 0, 0.6), 0 0 50px rgba(255, 215, 0, 0.6); }
         }
         
         .logo-wrapper img {
