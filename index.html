@@ -59,7 +59,7 @@
             position: relative;
         }
         
-        /* ========== OVERLAY BACKGROUND COKLAT GELAP KEEMASAN (SEDIKIT LEBIH GELAP) ========== */
+        /* ========== OVERLAY BACKGROUND COKLAT GELAP KEEMASAN (TRANSPARANSI DITAMBAH) ========== */
         body::before {
             content: '';
             position: fixed;
@@ -68,9 +68,9 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(to bottom, 
-                rgba(25, 16, 4, 0.90) 0%, 
-                rgba(38, 23, 6, 0.94) 50%, 
-                rgba(16, 10, 2, 0.96) 100%);
+                rgba(25, 16, 4, 0.75) 0%, 
+                rgba(38, 23, 6, 0.80) 50%, 
+                rgba(16, 10, 2, 0.85) 100%);
             z-index: 0;
             pointer-events: none;
         }
@@ -94,7 +94,7 @@
             transition: opacity 0.8s ease, visibility 0.8s ease;
         }
         
-        /* Overlay untuk landing page - coklat gelap keemasan (SEDIKIT LEBIH GELAP) */
+        /* Overlay untuk landing page - coklat gelap keemasan (TRANSPARANSI DITAMBAH) */
         .landing-page::before {
             content: '';
             position: absolute;
@@ -103,8 +103,8 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(to bottom, 
-                rgba(20, 13, 4, 0.92) 0%, 
-                rgba(32, 20, 6, 0.96) 100%);
+                rgba(20, 13, 4, 0.78) 0%, 
+                rgba(32, 20, 6, 0.82) 100%);
             z-index: -1;
         }
         
@@ -342,7 +342,7 @@
         .greeting-wrapper {
             border-left: 3px solid #FFD700;
             border-right: 3px solid #FFD700;
-            background: rgba(25, 16, 4, 0.55);
+            background: rgba(25, 16, 4, 0.45);
             border-radius: 8px;
             padding: 20px;
             margin: 8px 0;
@@ -444,7 +444,7 @@
             padding: 20px;
             border-left: 3px solid #FFD700;
             border-right: 3px solid #FFD700;
-            background: rgba(25, 16, 4, 0.55);
+            background: rgba(25, 16, 4, 0.45);
             border-radius: 8px;
             opacity: 0;
             line-height: 1.6;
@@ -712,7 +712,7 @@
             bottom: 20px;
             right: 20px;
             z-index: 100;
-            background: rgba(25, 16, 4, 0.65);
+            background: rgba(25, 16, 4, 0.50);
             backdrop-filter: blur(10px);
             border-radius: 50%;
             width: 50px;
