@@ -408,7 +408,7 @@
             font-style: italic;
             font-size: 0.95rem;
             max-width: 400px;
-            margin: 5px 0 15px 0;
+            margin: 5px 0 5px 0;
             padding: 20px;
             border-left: 3px solid #FFD700;
             border-right: 3px solid #FFD700;
@@ -421,6 +421,20 @@
         
         .page-three.visible .prayer-quran {
             animation: fadeInUp 1s ease-out 0.2s forwards;
+        }
+        
+        /* TAMBAHAN: Style untuk referensi ayat */
+        .quran-reference {
+            color: #FFD700;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 0 0 15px 0;
+            opacity: 0;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+        
+        .page-three.visible .quran-reference {
+            animation: fadeInUp 1s ease-out 0.3s forwards;
         }
         
         /* Header ucapan - DIPERKECIL font-nya */
@@ -737,7 +751,8 @@
             /* Mobile adjustments untuk halaman 3 */
             .page-three-header { font-size: 0.75rem; letter-spacing: 1px; }
             .page-three-greeting { font-size: 1.2rem; }
-            .prayer-quran { font-size: 0.85rem; padding: 15px; max-width: 320px; margin: 3px 0 10px 0; }
+            .prayer-quran { font-size: 0.85rem; padding: 15px; max-width: 320px; margin: 3px 0 3px 0; }
+            .quran-reference { font-size: 0.75rem; margin: 0 0 10px 0; }
             .page-three-photo-wrapper { max-height: 20vh; }
             
             .page-indicator { bottom: 8px; gap: 10px; }
@@ -845,6 +860,9 @@
         <div class="prayer-quran">
             "Wahai orang-orang yang beriman diwajibkan atas kamu berpuasa sebagaimana diwajibkan orang-orang sebelum kamu agar kamu bertakwa"
         </div>
+        
+        <!-- TAMBAHAN: Referensi Ayat -->
+        <div class="quran-reference">(QS. Al-Baqarah: 183)</div>
         
         <!-- Ucapan di bawah ayat -->
         <div class="page-three-header">KAMI MENGUCAPKAN</div>
