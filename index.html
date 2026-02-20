@@ -269,7 +269,7 @@
             font-size: 2rem;
             color: #FFD700;
             text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-            margin: 15px 0 5px 0; /* DITURUNKAN: margin-top dari 0 menjadi 15px */
+            margin: 15px 0 5px 0;
             opacity: 0;
             animation: fadeInUp 1s ease-out 0.4s forwards;
             letter-spacing: 1px;
@@ -399,7 +399,7 @@
             font-style: italic;
             font-size: 0.95rem;
             max-width: 400px;
-            margin: 5px 0 15px 0; /* DINAIIKKAN: margin-top dari 20px menjadi 5px, margin-bottom disesuaikan */
+            margin: 5px 0 15px 0;
             padding: 20px;
             border-left: 3px solid #FFD700;
             border-right: 3px solid #FFD700;
@@ -417,9 +417,9 @@
         /* Header ucapan - DIPERKECIL font-nya */
         .page-three-header {
             color: #FFD700;
-            font-size: 0.9rem; /* DIPERKECIL dari 1.1rem */
+            font-size: 0.9rem;
             font-weight: 600;
-            margin-top: 10px; /* Disesuaikan dari 20px */
+            margin-top: 10px;
             margin-bottom: 5px;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -434,7 +434,7 @@
         /* Greeting - DIPERKECIL font-nya */
         .page-three-greeting {
             font-family: 'Ramadhan Kareem', cursive;
-            font-size: 1.5rem; /* DIPERKECIL dari 1.8rem */
+            font-size: 1.5rem;
             color: #FFD700;
             margin-bottom: 15px;
             text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
@@ -482,57 +482,6 @@
             height: 100%;
             object-fit: cover;
             display: block;
-        }
-        
-        /* ========== HALAMAN 4: GALERI (KOSONG) ========== */
-        .page-four {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 10;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            text-align: center;
-            opacity: 0;
-            visibility: hidden;
-            transform: scale(0.95);
-            transition: opacity 0.8s ease, visibility 0.8s ease, transform 0.8s ease;
-            touch-action: pan-y pinch-zoom;
-            overflow-y: auto;
-        }
-        
-        .page-four.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: scale(1);
-        }
-        
-        .page-four-header {
-            color: #FFD700;
-            font-size: 3rem;
-            font-weight: 600;
-            margin-bottom: 30px;
-            letter-spacing: 2px;
-            opacity: 0;
-            font-family: 'Ramadhan Kareem', cursive;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-        }
-        
-        .page-four.visible .page-four-header {
-            animation: fadeInUp 1s ease-out 0.2s forwards;
-        }
-        
-        .page-four-message {
-            color: rgba(255,255,255,0.8);
-            font-size: 1.2rem;
-            max-width: 400px;
-            opacity: 0;
-            animation: fadeInUp 1s ease-out 0.4s forwards;
         }
         
         /* ========== PAGE INDICATOR ========== */
@@ -763,7 +712,7 @@
             .landing-header-text .line2 { font-size: 0.8rem; }
             
             .arabic-text { font-size: 2.8rem; margin: 0 0 3px 0; }
-            .ramadhan-kareem-text { font-size: 1.6rem; margin: 12px 0 3px 0; } /* Disesuaikan untuk mobile */
+            .ramadhan-kareem-text { font-size: 1.6rem; margin: 12px 0 3px 0; }
             .greeting { font-size: 0.9rem; max-width: 350px; }
             .marhaban-text { font-size: 1.3rem; margin: 8px 0 3px 0; }
             .moon { width: 60px; height: 60px; top: 10px; right: 10px; }
@@ -777,12 +726,10 @@
             .music-icon { font-size: 20px; }
             
             /* Mobile adjustments untuk halaman 3 */
-            .page-three-header { font-size: 0.75rem; letter-spacing: 1px; } /* DIPERKECIL dari 0.9rem */
-            .page-three-greeting { font-size: 1.2rem; } /* DIPERKECIL dari 1.4rem */
-            .prayer-quran { font-size: 0.85rem; padding: 15px; max-width: 320px; margin: 3px 0 10px 0; } /* Disesuaikan */
+            .page-three-header { font-size: 0.75rem; letter-spacing: 1px; }
+            .page-three-greeting { font-size: 1.2rem; }
+            .prayer-quran { font-size: 0.85rem; padding: 15px; max-width: 320px; margin: 3px 0 10px 0; }
             .page-three-photo-wrapper { max-height: 20vh; }
-            
-            .page-four-header { font-size: 2.2rem; margin-bottom: 20px; }
             
             .page-indicator { bottom: 8px; gap: 10px; }
             .dot { width: 8px; height: 8px; }
@@ -898,7 +845,7 @@
             Ramadhan 1447 Hijriah
         </div>
         
-        <!-- Foto dipindahkan dari halaman 4 -->
+        <!-- Foto -->
         <div class="page-three-photos">
             <div class="page-three-photo-wrapper">
                 <img src="photo-01.jpg" alt="Foto 1">
@@ -909,20 +856,10 @@
         </div>
     </div>
     
-    <!-- ========== HALAMAN 4: GALERI (KOSONG) ========== -->
-    <div class="page-four" id="pageFour">
-        <div class="page-four-header">Galery</div>
-        <div class="page-four-message">
-            Terima kasih telah mengunjungi ucapan kami.<br>
-            Semoga Ramadhan ini membawa berkah untuk kita semua.
-        </div>
-    </div>
-    
     <!-- Page Indicator -->
     <div class="page-indicator" id="pageIndicator">
         <div class="dot active" id="dot1"></div>
         <div class="dot" id="dot2"></div>
-        <div class="dot" id="dot3"></div>
     </div>
     
     <script>
@@ -954,11 +891,9 @@
         const landingPage = document.getElementById('landingPage');
         const mainContainer = document.getElementById('mainContainer');
         const pageThree = document.getElementById('pageThree');
-        const pageFour = document.getElementById('pageFour');
         const pageIndicator = document.getElementById('pageIndicator');
         const dot1 = document.getElementById('dot1');
         const dot2 = document.getElementById('dot2');
-        const dot3 = document.getElementById('dot3');
         const music = document.getElementById('bgMusic');
         const musicBtn = document.getElementById('musicBtn');
         const musicIcon = document.getElementById('musicIcon');
@@ -1002,15 +937,11 @@
             if (swipeDistance < -minSwipeDistance) {
                 if (currentPage === 1 && mainContainer.classList.contains('visible')) {
                     openPageThree();
-                } else if (currentPage === 2 && pageThree.classList.contains('visible')) {
-                    openPageFour();
                 }
             }
             else if (swipeDistance > minSwipeDistance) {
                 if (currentPage === 2 && pageThree.classList.contains('visible')) {
                     backToPageTwo();
-                } else if (currentPage === 3 && pageFour.classList.contains('visible')) {
-                    backToPageThree();
                 }
             }
         }
@@ -1035,14 +966,10 @@
             if (swipeDistance < -minSwipeDistance) {
                 if (currentPage === 1 && mainContainer.classList.contains('visible')) {
                     openPageThree();
-                } else if (currentPage === 2 && pageThree.classList.contains('visible')) {
-                    openPageFour();
                 }
             } else if (swipeDistance > minSwipeDistance) {
                 if (currentPage === 2 && pageThree.classList.contains('visible')) {
                     backToPageTwo();
-                } else if (currentPage === 3 && pageFour.classList.contains('visible')) {
-                    backToPageThree();
                 }
             }
         });
@@ -1051,14 +978,11 @@
             currentPage = page;
             dot1.classList.remove('active');
             dot2.classList.remove('active');
-            dot3.classList.remove('active');
             
             if (page === 1) {
                 dot1.classList.add('active');
             } else if (page === 2) {
                 dot2.classList.add('active');
-            } else if (page === 3) {
-                dot3.classList.add('active');
             }
         }
         
@@ -1096,24 +1020,6 @@
             setTimeout(() => {
                 mainContainer.classList.add('visible');
                 updateIndicator(1);
-            }, 100);
-        }
-        
-        function openPageFour() {
-            pageThree.classList.remove('visible');
-            
-            setTimeout(() => {
-                pageFour.classList.add('visible');
-                updateIndicator(3);
-            }, 100);
-        }
-        
-        function backToPageThree() {
-            pageFour.classList.remove('visible');
-            
-            setTimeout(() => {
-                pageThree.classList.add('visible');
-                updateIndicator(2);
             }, 100);
         }
         
