@@ -269,7 +269,7 @@
             font-size: 2rem;
             color: #FFD700;
             text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-            margin: 0 0 5px 0;
+            margin: 15px 0 5px 0; /* DITURUNKAN: margin-top dari 0 menjadi 15px */
             opacity: 0;
             animation: fadeInUp 1s ease-out 0.4s forwards;
             letter-spacing: 1px;
@@ -393,13 +393,13 @@
             transform: scale(1);
         }
         
-        /* Ayat Quran - sekarang di atas */
+        /* Ayat Quran - DINAIIKKAN sedikit ke atas */
         .prayer-quran {
             color: #FFE4B5;
             font-style: italic;
             font-size: 0.95rem;
             max-width: 400px;
-            margin: 20px 0;
+            margin: 5px 0 15px 0; /* DINAIIKKAN: margin-top dari 20px menjadi 5px, margin-bottom disesuaikan */
             padding: 20px;
             border-left: 3px solid #FFD700;
             border-right: 3px solid #FFD700;
@@ -414,12 +414,12 @@
             animation: fadeInUp 1s ease-out 0.2s forwards;
         }
         
-        /* Header ucapan - sekarang di bawah ayat */
+        /* Header ucapan - DIPERKECIL font-nya */
         .page-three-header {
             color: #FFD700;
-            font-size: 1.1rem;
+            font-size: 0.9rem; /* DIPERKECIL dari 1.1rem */
             font-weight: 600;
-            margin-top: 20px;
+            margin-top: 10px; /* Disesuaikan dari 20px */
             margin-bottom: 5px;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -431,9 +431,10 @@
             animation: fadeInUp 1s ease-out 0.4s forwards;
         }
         
+        /* Greeting - DIPERKECIL font-nya */
         .page-three-greeting {
             font-family: 'Ramadhan Kareem', cursive;
-            font-size: 1.8rem;
+            font-size: 1.5rem; /* DIPERKECIL dari 1.8rem */
             color: #FFD700;
             margin-bottom: 15px;
             text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
@@ -762,7 +763,7 @@
             .landing-header-text .line2 { font-size: 0.8rem; }
             
             .arabic-text { font-size: 2.8rem; margin: 0 0 3px 0; }
-            .ramadhan-kareem-text { font-size: 1.6rem; margin: 0 0 3px 0; }
+            .ramadhan-kareem-text { font-size: 1.6rem; margin: 12px 0 3px 0; } /* Disesuaikan untuk mobile */
             .greeting { font-size: 0.9rem; max-width: 350px; }
             .marhaban-text { font-size: 1.3rem; margin: 8px 0 3px 0; }
             .moon { width: 60px; height: 60px; top: 10px; right: 10px; }
@@ -775,9 +776,10 @@
             .music-control { width: 45px; height: 45px; bottom: 15px; right: 15px; }
             .music-icon { font-size: 20px; }
             
-            .page-three-header { font-size: 0.9rem; letter-spacing: 1px; }
-            .page-three-greeting { font-size: 1.4rem; }
-            .prayer-quran { font-size: 0.85rem; padding: 15px; max-width: 320px; }
+            /* Mobile adjustments untuk halaman 3 */
+            .page-three-header { font-size: 0.75rem; letter-spacing: 1px; } /* DIPERKECIL dari 0.9rem */
+            .page-three-greeting { font-size: 1.2rem; } /* DIPERKECIL dari 1.4rem */
+            .prayer-quran { font-size: 0.85rem; padding: 15px; max-width: 320px; margin: 3px 0 10px 0; } /* Disesuaikan */
             .page-three-photo-wrapper { max-height: 20vh; }
             
             .page-four-header { font-size: 2.2rem; margin-bottom: 20px; }
