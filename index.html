@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+    <!-- Google tag (gtag.js) - Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selamat Ramadhan - PAUD Asifa Sianok</title>
@@ -987,6 +996,14 @@
         }
         
         function openGreeting() {
+            // Track event saat tombol diklik
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'open_greeting', {
+                    'event_category': 'engagement',
+                    'event_label': 'Buka Ucapan Button'
+                });
+            }
+            
             music.volume = 0.5;
             music.play().then(() => {
                 isPlaying = true;
@@ -1006,6 +1023,14 @@
         }
         
         function openPageThree() {
+            // Track event saat pindah ke halaman 3
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'view_page_three', {
+                    'event_category': 'navigation',
+                    'event_label': 'Page Three'
+                });
+            }
+            
             mainContainer.classList.remove('visible');
             
             setTimeout(() => {
@@ -1015,6 +1040,14 @@
         }
         
         function backToPageTwo() {
+            // Track event saat kembali ke halaman 2
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'back_to_page_two', {
+                    'event_category': 'navigation',
+                    'event_label': 'Page Two'
+                });
+            }
+            
             pageThree.classList.remove('visible');
             
             setTimeout(() => {
@@ -1024,6 +1057,14 @@
         }
         
         function toggleMusic() {
+            // Track event saat toggle musik
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'toggle_music', {
+                    'event_category': 'engagement',
+                    'event_label': isPlaying ? 'Pause' : 'Play'
+                });
+            }
+            
             if (isPlaying) {
                 music.pause();
                 musicIcon.textContent = '🔇';
