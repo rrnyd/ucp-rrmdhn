@@ -326,23 +326,42 @@
             z-index: 1;
         }
         
+        /* TAMBAHAN: Wrapper untuk greeting dengan border seperti halaman 3 */
+        .greeting-wrapper {
+            border-left: 3px solid #FFD700;
+            border-right: 3px solid #FFD700;
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 8px 0;
+            max-width: 450px;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.6s forwards;
+        }
+        
         .greeting {
             color: #fff;
             font-size: 1rem;
             font-weight: 300;
-            margin: 8px 0;
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
             background: linear-gradient(135deg, #fff 0%, #FFD700 50%, #fff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             background-size: 200% auto;
-            animation: gradient 3s linear infinite, fadeInUp 1s ease-out 0.6s forwards;
-            line-height: 1.5;
-            opacity: 0;
-            max-width: 450px;
-            padding: 0 15px;
+            animation: gradient 3s linear infinite;
+            line-height: 1.4;
             letter-spacing: 0.3px;
+            margin: 0;
+        }
+        
+        /* Jarak antar paragraf menggunakan p */
+        .greeting p {
+            margin-bottom: 0.6em;
+        }
+        
+        .greeting p:last-child {
+            margin-bottom: 0;
         }
         
         @keyframes gradient {
@@ -736,7 +755,9 @@
             
             .arabic-text { font-size: 2.8rem; margin: 0 0 3px 0; }
             .ramadhan-kareem-text { font-size: 1.6rem; margin: 12px 0 3px 0; }
-            .greeting { font-size: 0.9rem; max-width: 350px; }
+            .greeting-wrapper { max-width: 350px; padding: 15px; }
+            .greeting { font-size: 0.9rem; line-height: 1.4; }
+            .greeting p { margin-bottom: 0.5em; }
             .marhaban-text { font-size: 1.3rem; margin: 8px 0 3px 0; }
             .moon { width: 60px; height: 60px; top: 10px; right: 10px; }
             .logo-wrapper { 
@@ -837,17 +858,22 @@
             </div>
         </div>
         
-        <h1 class="greeting">
-            Dengan segala kerendahan hati,<br>
-            Kami mohon maaf apabila selama ini<br>
-            pernah menyakiti,<br>
-            baik disengaja maupun tidak disengaja.<br><br>
-            Semoga kita bisa memasuki bulan suci ini<br>
-            dengan hati yang bersih dan tenang.<br><br>
-            Mari kita sama-sama jalani Ramadhan<br>
-            dengan penuh ketenangan dan semangat<br>
-            untuk menjadi pribadi yang lebih baik.
-        </h1>
+        <!-- DIBUNGKUS DENGAN GREETING-WRAPPER UNTUK BORDER -->
+        <div class="greeting-wrapper">
+            <div class="greeting">
+                <p>Dengan segala kerendahan hati,<br>
+                Kami mohon maaf apabila selama ini<br>
+                pernah menyakiti,<br>
+                baik disengaja maupun tidak disengaja.</p>
+                
+                <p>Semoga kita bisa memasuki bulan suci ini<br>
+                dengan hati yang bersih dan tenang.</p>
+                
+                <p>Mari kita sama-sama jalani Ramadhan<br>
+                dengan penuh ketenangan dan semangat<br>
+                untuk menjadi pribadi yang lebih baik.</p>
+            </div>
+        </div>
         
         <div class="marhaban-text">Marhaban Ya Ramadhan</div>
         
