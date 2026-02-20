@@ -229,8 +229,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* Changed to flex-start for better control */
-            padding-top: 2vh; /* Reduced top padding */
+            justify-content: flex-start;
+            padding-top: 2vh;
             padding-bottom: 10px;
             text-align: center;
             opacity: 0;
@@ -258,7 +258,7 @@
             font-size: 3.5rem;
             color: #FFD700;
             text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-            margin: 0 0 5px 0; /* Reduced bottom margin */
+            margin: 0 0 5px 0;
             opacity: 0;
             animation: fadeInUp 1s ease-out 0.3s forwards;
             line-height: 1.2;
@@ -269,14 +269,14 @@
             font-size: 2rem;
             color: #FFD700;
             text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-            margin: 0 0 5px 0; /* Reduced bottom margin */
+            margin: 0 0 5px 0;
             opacity: 0;
             animation: fadeInUp 1s ease-out 0.4s forwards;
             letter-spacing: 1px;
         }
         
         .logo-container {
-            margin: 5px 0; /* Reduced margin */
+            margin: 5px 0;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -286,7 +286,7 @@
         
         /* LOGO HALAMAN 2 - BORDER SANGAT TIPIS */
         .logo-wrapper {
-            width: min(45vw, 240px); /* Slightly smaller */
+            width: min(45vw, 240px);
             height: min(45vw, 240px);
             min-width: 140px;
             min-height: 140px;
@@ -319,7 +319,7 @@
         
         .greeting {
             color: #fff;
-            font-size: 1rem; /* Increased from 0.9rem */
+            font-size: 1rem;
             font-weight: 300;
             margin: 8px 0;
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
@@ -384,6 +384,7 @@
             transform: scale(0.95);
             transition: opacity 0.8s ease, visibility 0.8s ease, transform 0.8s ease;
             touch-action: pan-y pinch-zoom;
+            overflow-y: auto;
         }
         
         .page-three.visible {
@@ -392,40 +393,8 @@
             transform: scale(1);
         }
         
-        .page-three-header {
-            color: #FFD700;
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            opacity: 0;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-        }
-        
-        .page-three.visible .page-three-header {
-            animation: fadeInUp 1s ease-out 0.2s forwards;
-        }
-        
-        .page-three-greeting {
-            font-family: 'Ramadhan Kareem', cursive;
-            font-size: 1.8rem;
-            color: #FFD700;
-            margin-bottom: 20px;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-            opacity: 0;
-            line-height: 1.3;
-        }
-        
-        .page-three.visible .page-three-greeting {
-            animation: fadeInUp 1s ease-out 0.4s forwards;
-        }
-        
-        .page-three .decorative-line {
-            animation-delay: 0.6s;
-        }
-        
-        .prayer {
+        /* Ayat Quran - sekarang di atas */
+        .prayer-quran {
             color: #FFE4B5;
             font-style: italic;
             font-size: 0.95rem;
@@ -441,11 +410,80 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
         
-        .page-three.visible .prayer {
+        .page-three.visible .prayer-quran {
+            animation: fadeInUp 1s ease-out 0.2s forwards;
+        }
+        
+        /* Header ucapan - sekarang di bawah ayat */
+        .page-three-header {
+            color: #FFD700;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+        
+        .page-three.visible .page-three-header {
+            animation: fadeInUp 1s ease-out 0.4s forwards;
+        }
+        
+        .page-three-greeting {
+            font-family: 'Ramadhan Kareem', cursive;
+            font-size: 1.8rem;
+            color: #FFD700;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            opacity: 0;
+            line-height: 1.3;
+        }
+        
+        .page-three.visible .page-three-greeting {
+            animation: fadeInUp 1s ease-out 0.6s forwards;
+        }
+        
+        /* Container foto di halaman 3 */
+        .page-three-photos {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+            width: 100%;
+            max-width: 600px;
+        }
+        
+        .page-three-photo-wrapper {
+            width: 90%;
+            max-width: 500px;
+            height: auto;
+            max-height: 25vh;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4),
+                        0 0 0 2px rgba(255, 215, 0, 0.3);
+            opacity: 0;
+        }
+        
+        .page-three.visible .page-three-photo-wrapper:nth-child(1) {
             animation: fadeInUp 1s ease-out 0.8s forwards;
         }
         
-        /* ========== HALAMAN 4: GALERI ========== */
+        .page-three.visible .page-three-photo-wrapper:nth-child(2) {
+            animation: fadeInUp 1s ease-out 1.0s forwards;
+        }
+        
+        .page-three-photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* ========== HALAMAN 4: GALERI (KOSONG) ========== */
         .page-four {
             position: fixed;
             top: 0;
@@ -488,40 +526,12 @@
             animation: fadeInUp 1s ease-out 0.2s forwards;
         }
         
-        .page-four-photo-container {
-            margin: 10px 0;
+        .page-four-message {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.2rem;
+            max-width: 400px;
             opacity: 0;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
-        
-        .page-four.visible .page-four-photo-container {
             animation: fadeInUp 1s ease-out 0.4s forwards;
-        }
-        
-        .page-four.visible .page-four-photo-container:nth-child(3) {
-            animation-delay: 0.6s;
-        }
-        
-        .page-four-photo-wrapper {
-            width: 90vw;
-            height: auto;
-            max-width: 600px;
-            max-height: 35vh;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4),
-                        0 0 0 2px rgba(255, 215, 0, 0.3);
-            position: relative;
-            margin: 0 auto;
-        }
-        
-        .page-four-photo-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
         }
         
         /* ========== PAGE INDICATOR ========== */
@@ -753,7 +763,7 @@
             
             .arabic-text { font-size: 2.8rem; margin: 0 0 3px 0; }
             .ramadhan-kareem-text { font-size: 1.6rem; margin: 0 0 3px 0; }
-            .greeting { font-size: 0.9rem; max-width: 350px; } /* Increased from 0.8rem */
+            .greeting { font-size: 0.9rem; max-width: 350px; }
             .marhaban-text { font-size: 1.3rem; margin: 8px 0 3px 0; }
             .moon { width: 60px; height: 60px; top: 10px; right: 10px; }
             .logo-wrapper { 
@@ -767,14 +777,10 @@
             
             .page-three-header { font-size: 0.9rem; letter-spacing: 1px; }
             .page-three-greeting { font-size: 1.4rem; }
-            .prayer { font-size: 0.85rem; padding: 15px; max-width: 320px; }
+            .prayer-quran { font-size: 0.85rem; padding: 15px; max-width: 320px; }
+            .page-three-photo-wrapper { max-height: 20vh; }
             
             .page-four-header { font-size: 2.2rem; margin-bottom: 20px; }
-            .page-four-photo-wrapper {
-                width: 95vw;
-                max-width: none;
-                max-height: 30vh;
-            }
             
             .page-indicator { bottom: 8px; gap: 10px; }
             .dot { width: 8px; height: 8px; }
@@ -875,8 +881,14 @@
         <div class="decorative-line"></div>
     </div>
     
-    <!-- ========== HALAMAN 3: DOA ========== -->
+    <!-- ========== HALAMAN 3: DOA & FOTO ========== -->
     <div class="page-three" id="pageThree">
+        <!-- Ayat Quran di atas -->
+        <div class="prayer-quran">
+            "Wahai orang-orang yang beriman diwajibkan atas kamu berpuasa sebagaimana diwajibkan orang-orang sebelum kamu agar kamu bertakwa"
+        </div>
+        
+        <!-- Ucapan di bawah ayat -->
         <div class="page-three-header">KAMI MENGUCAPKAN</div>
         
         <div class="page-three-greeting">
@@ -884,31 +896,23 @@
             Ramadhan 1447 Hijriah
         </div>
         
-        <div class="decorative-line"></div>
-        
-        <div class="prayer">
-            "Wahai orang-orang yang beriman diwajibkan atas kamu berpuasa sebagaimana diwajibkan orang-orang sebelum kamu agar kamu bertakwa"
-        </div>
-        
-        <div class="prayer" style="margin-top: 15px;">
-            "Ya allah terimalah puasa kami, perbanyaklah rezeki kami, dan janganlah engkau jadikan kami termasuk orang-orang yang merugi."
+        <!-- Foto dipindahkan dari halaman 4 -->
+        <div class="page-three-photos">
+            <div class="page-three-photo-wrapper">
+                <img src="photo-01.jpg" alt="Foto 1">
+            </div>
+            <div class="page-three-photo-wrapper">
+                <img src="photo-02.jpg" alt="Foto 2">
+            </div>
         </div>
     </div>
     
-    <!-- ========== HALAMAN 4: GALERI ========== -->
+    <!-- ========== HALAMAN 4: GALERI (KOSONG) ========== -->
     <div class="page-four" id="pageFour">
         <div class="page-four-header">Galery</div>
-        
-        <div class="page-four-photo-container">
-            <div class="page-four-photo-wrapper">
-                <img src="photo-01.jpg" alt="Foto 1">
-            </div>
-        </div>
-        
-        <div class="page-four-photo-container">
-            <div class="page-four-photo-wrapper">
-                <img src="photo-02.jpg" alt="Foto 2">
-            </div>
+        <div class="page-four-message">
+            Terima kasih telah mengunjungi ucapan kami.<br>
+            Semoga Ramadhan ini membawa berkah untuk kita semua.
         </div>
     </div>
     
