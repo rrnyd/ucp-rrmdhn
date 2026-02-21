@@ -351,26 +351,31 @@
             animation: fadeInUp 1s ease-out 0.6s forwards;
         }
         
+        /* GREETING YANG DIBUAT LEBIH TERANG - DENGAN GRADIEN YANG LEBIH HIDUP */
         .greeting {
             color: #fff;
             font-size: 1rem;
-            font-weight: 300;
-            text-shadow: 0.05em 0.05em 0.1em rgba(0,0,0,0.8), 0 0 0.5em rgba(0,0,0,0.3);
-            background: linear-gradient(135deg, #fff 0%, #FFD700 50%, #fff 100%);
+            font-weight: 400;
+            line-height: 1.6;
+            letter-spacing: 0.3px;
+            margin: 0;
+            /* Gradien yang lebih terang dan kontras tinggi */
+            background: linear-gradient(135deg, #FFFFFF 0%, #FFF8DC 25%, #FFD700 50%, #FFF8DC 75%, #FFFFFF 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            background-size: 200% auto;
-            animation: gradient 3s linear infinite;
-            line-height: 1.4;
-            letter-spacing: 0.3px;
-            margin: 0;
+            background-size: 300% auto;
+            animation: gradient 4s linear infinite;
+            /* Text shadow yang lebih kuat untuk keterbacaan */
+            filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6)) 
+                    drop-shadow(0 0 15px rgba(255, 215, 0, 0.4))
+                    drop-shadow(0 2px 4px rgba(0,0,0,0.8));
         }
         
         /* Jarak antar paragraf menggunakan p */
         .greeting p {
-            margin-bottom: 0.6em;
-            text-shadow: 0.05em 0.05em 0.1em rgba(0,0,0,0.8);
+            margin-bottom: 0.8em;
+            text-shadow: none; /* Hapus text-shadow individual karena sudah pakai filter */
         }
         
         .greeting p:last-child {
@@ -378,7 +383,8 @@
         }
         
         @keyframes gradient {
-            to { background-position: 200% center; }
+            0% { background-position: 0% center; }
+            100% { background-position: 300% center; }
         }
         
         .marhaban-text {
@@ -770,8 +776,14 @@
             .arabic-text { font-size: 2.8rem; margin: 0 0 3px 0; }
             .ramadhan-kareem-text { font-size: 1.6rem; margin: 12px 0 3px 0; }
             .greeting-wrapper { max-width: 350px; padding: 15px; }
-            .greeting { font-size: 0.9rem; line-height: 1.4; }
-            .greeting p { margin-bottom: 0.5em; }
+            .greeting { 
+                font-size: 0.95rem; 
+                line-height: 1.5;
+                filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.5)) 
+                        drop-shadow(0 0 10px rgba(255, 215, 0, 0.3))
+                        drop-shadow(0 1px 3px rgba(0,0,0,0.9));
+            }
+            .greeting p { margin-bottom: 0.6em; }
             .marhaban-text { font-size: 1.3rem; margin: 8px 0 3px 0; }
             .moon { width: 60px; height: 60px; top: 10px; right: 10px; }
             .logo-wrapper { 
@@ -880,12 +892,12 @@
                 pernah menyakiti, baik disengaja<br>
                 maupun tidak disengaja.</p>
                 
-                <p>Semoga kita bisa memasuki bulan suci ini<br>
+                <p>"Semoga kita bisa memasuki bulan suci ini<br>
                 dengan hati yang bersih dan tenang.</p>
                 
                 <p>Mari kita sama-sama jalani Ramadhan<br>
                 dengan penuh ketenangan dan semangat untuk menjadi<br>
-                pribadi yang lebih baik.</p>
+                pribadi yang lebih baik."</p>
             </div>
         </div>
         
