@@ -385,7 +385,7 @@
             animation: fadeInUp 1s ease-out 0.6s forwards;
         }
         
-        /* GREETING YANG DIBUAT LEBIH TERANG - DENGAN GRADIEN YANG LEBIH HIDUP */
+        /* GREETING - VERSI SCREENSHOT (tanpa efek yang bermasalah) */
         .greeting {
             color: #fff;
             font-size: 1rem;
@@ -393,23 +393,33 @@
             line-height: 1.2;
             letter-spacing: 0.3px;
             margin: 0;
-            /* Gradien yang lebih terang dan kontras tinggi */
+        }
+        
+        /* VERSI TAMPILAN: dengan efek gradien dan glow */
+        .greeting-display {
             background: linear-gradient(135deg, #FFFFFF 0%, #FFF8DC 25%, #FFD700 50%, #FFF8DC 75%, #FFFFFF 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             background-size: 300% auto;
             animation: gradient 4s linear infinite;
-            /* Text shadow yang lebih kuat untuk keterbacaan */
             filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6)) 
                     drop-shadow(0 0 15px rgba(255, 215, 0, 0.4))
                     drop-shadow(0 2px 4px rgba(0,0,0,0.8));
         }
         
+        /* VERSI SCREENSHOT: warna solid emas dengan text-shadow */
+        .greeting-screenshot {
+            color: #FFD700 !important;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 
+                         0 0 20px rgba(255, 215, 0, 0.6),
+                         0 2px 4px rgba(0,0,0,0.9);
+            -webkit-text-fill-color: #FFD700 !important;
+        }
+        
         /* Jarak antar paragraf menggunakan p */
         .greeting p {
             margin-bottom: 0.8em;
-            text-shadow: none; /* Hapus text-shadow individual karena sudah pakai filter */
         }
         
         .greeting p:last-child {
@@ -772,6 +782,8 @@
             .greeting { 
                 font-size: 0.95rem; 
                 line-height: 1.2;
+            }
+            .greeting-display {
                 filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.5)) 
                         drop-shadow(0 0 10px rgba(255, 215, 0, 0.3))
                         drop-shadow(0 1px 3px rgba(0,0,0,0.9));
@@ -892,7 +904,7 @@
         
         <!-- DIBUNGKUS DENGAN GREETING-WRAPPER UNTUK BORDER -->
         <div class="greeting-wrapper">
-            <div class="greeting">
+            <div class="greeting greeting-display" id="greetingText">
                 <p>Dengan segala kerendahan hati,<br>
                 kami mohon maaf apabila selama ini<br>
                 pernah menyakiti, baik disengaja<br>
@@ -1159,6 +1171,7 @@
             const hiddenCaptureBtn = document.querySelector('.hidden-capture-btn');
             const hiddenMusicBtn = document.querySelector('.hidden-music-btn');
             const pageIndicator = document.getElementById('pageIndicator');
+            const greetingText = document.getElementById('greetingText');
             
             const originalCaptureDisplay = hiddenCaptureBtn.style.display;
             const originalMusicDisplay = hiddenMusicBtn.style.display;
@@ -1168,20 +1181,47 @@
             hiddenMusicBtn.style.display = 'none';
             pageIndicator.style.display = 'none';
             
-            html2canvas(document.body, {
+            // Ganti class greeting untuk screenshot (warna solid)
+            greetingText.classList.remove('greeting-display');
+            greetingText.classList.add('greeting-screenshot');
+            
+            // Tentukan elemen target berdasarkan halaman yang aktif
+            let targetElement;
+            if (landingPage && !landingPage.classList.contains('hidden')) {
+                targetElement = landingPage;
+            } else if (pageThree && pageThree.classList.contains('visible')) {
+                targetElement = pageThree;
+            } else {
+                targetElement = mainContainer;
+            }
+            
+            // Ambil ukuran viewport
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            
+            html2canvas(targetElement, {
                 scale: 2,
+                width: viewportWidth,
+                height: viewportHeight,
+                x: 0,
+                y: 0,
                 scrollX: 0,
                 scrollY: 0,
-                windowWidth: document.documentElement.scrollWidth,
-                windowHeight: document.documentElement.scrollHeight,
+                windowWidth: viewportWidth,
+                windowHeight: viewportHeight,
                 useCORS: true,
                 allowTaint: true,
-                backgroundColor: null
+                backgroundColor: null,
+                logging: false
             }).then(canvas => {
                 // Kembalikan elemen setelah screenshot
                 hiddenCaptureBtn.style.display = originalCaptureDisplay;
                 hiddenMusicBtn.style.display = originalMusicDisplay;
                 pageIndicator.style.display = originalIndicatorDisplay;
+                
+                // Kembalikan class greeting ke versi display
+                greetingText.classList.remove('greeting-screenshot');
+                greetingText.classList.add('greeting-display');
                 
                 // Download gambar
                 const link = document.createElement('a');
@@ -1194,6 +1234,8 @@
                 hiddenCaptureBtn.style.display = originalCaptureDisplay;
                 hiddenMusicBtn.style.display = originalMusicDisplay;
                 pageIndicator.style.display = originalIndicatorDisplay;
+                greetingText.classList.remove('greeting-screenshot');
+                greetingText.classList.add('greeting-display');
                 alert('Gagal mengambil screenshot. Silakan coba lagi.');
             });
         }
